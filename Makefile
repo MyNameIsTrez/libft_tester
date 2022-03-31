@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    tester.mk                                          :+:    :+:             #
+#    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/04 14:13:59 by sbos          #+#    #+#                  #
-#    Updated: 2022/03/31 15:52:04 by sbos          ########   odam.nl          #
+#    Updated: 2022/03/31 16:20:00 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,12 +59,15 @@ START_OF_MAKEFILE_SHORTCUT := foo$(START_OF_MAKEFILE)
 $(START_OF_MAKEFILE_SHORTCUT):
 	$(MAKE) -C $(MAKEFILE_DIR) $(START_OF_MAKEFILE)
 
+.DEFAULT_GOAL := $(TESTER)
 $(TESTER): $(START_OF_MAKEFILE_SHORTCUT) $(MASSERT) $(TESTER_OBJECTS)
 	$(CC) $(CFLAGS) $(TESTER_INCLUDES) -g3 $(TESTER_OBJECTS) $(TESTER_LIB_FLAGS) -o $(TESTER)
 
 $(TESTS_OBJ_DIR)/%.o: $(TESTS_DIR)/%.c $(TESTER_HEADERS)
 	mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(TESTER_INCLUDES) -c $< -o $@
+
+.PHONY: $(START_OF_MAKEFILE_SHORTCUT)
 
 ################################################################################
 
@@ -75,15 +78,15 @@ $(MASSERT):
 
 ################################################################################
 
-fclean_tester:
+fclean_t:
 	rm -rf $(TESTS_OBJ_DIR)
 	rm -f $(TESTER)
 	$(MAKE) -C $(MAKEFILE_DIR) fclean
 	$(MAKE) -C $(MASSERT_DIR) fclean
 
-re_tester: fclean_tester $(TESTER)
+re_t: fclean_t $(TESTER)
 
-.PHONY: fclean_tester re_tester
+.PHONY: fclean_t re_t
 
 ################################################################################
 
