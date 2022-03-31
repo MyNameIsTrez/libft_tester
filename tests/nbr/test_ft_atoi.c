@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 14:30:21 by sbos          #+#    #+#                 */
-/*   Updated: 2022/03/21 13:16:54 by sbos          ########   odam.nl         */
+/*   Updated: 2022/03/31 17:59:03 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,14 @@ Test(ft_atoi)
 
 		massert(ft_atoi("12345a"), 12345);
 		massert(ft_atoi("12345a"), atoi("12345a"));
+	}
+
+	// Not very good tests as this is maybe system-dependent.
+	{
+		massert(ft_atoi("2147483647"), atoi("2147483647"));
+		massert(ft_atoi("2147483648"), atoi("2147483648"));
+		massert(ft_atoi("-2147483648"), atoi("-2147483648"));
+		massert(ft_atoi("-2147483649"), atoi("-2147483649"));
 	}
 }
 
