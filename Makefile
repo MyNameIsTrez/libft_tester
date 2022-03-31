@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/04 14:13:59 by sbos          #+#    #+#                  #
-#    Updated: 2022/03/31 16:35:41 by sbos          ########   odam.nl          #
+#    Updated: 2022/03/31 18:15:19 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ PROJECT_NAME := libft
 
 ################################################################################
 
-MAKEFILE_DIR := ../../Projects/$(PROJECT_NAME)
+MAKEFILE_DIR := $(PROJECT_NAME)
 
 export DEBUG := 1
 include $(MAKEFILE_DIR)/Makefile
