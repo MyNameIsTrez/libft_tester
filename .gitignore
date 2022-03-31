@@ -1,0 +1,17 @@
+# Ignore everything
+*
+
+# Allow folders
+!*/
+
+# Allow .c and .h files
+!*.[ch]
+
+# Allow everything in testers
+!testers/**
+
+# Allow Makefiles
+!Makefile
+
+# Allow repos to contain their own .gitignore
+!.gitignore
