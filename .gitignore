@@ -12,6 +12,14 @@
 
 # Allow Makefiles
 !Makefile
+!*.mk
 
 # Allow repos to contain their own .gitignore
 !.gitignore
+!.gitmodules
+
+# Miscellaneous
+!.vscode/*.json
+!.normignore
+!TODO.md
+!README.md
