@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_empty_str_assign_fail.c                    :+:    :+:            */
+/*   test_ft_empty_str_assign.c                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/25 20:13:08 by sbos          #+#    #+#                 */
-/*   Updated: 2022/03/25 17:15:28 by sbos          ########   odam.nl         */
+/*   Updated: 2022/04/05 15:52:42 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Test(ft_empty_str_assign_fail)
+Test(ft_empty_str_assign)
 {
 	char	*str;
 
 	str = NULL;
-	m_safe_assert(bool, ft_empty_str_assign_fail(&str), false, true);
+	m_safe_assert(t_success, ft_empty_str_assign(&str), SUCCESS, ERROR);
 	free(str);
 }
 

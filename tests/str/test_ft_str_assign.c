@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_str_assign_fail.c                          :+:    :+:            */
+/*   test_ft_str_assign.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/25 20:13:08 by sbos          #+#    #+#                 */
-/*   Updated: 2022/03/25 18:31:26 by sbos          ########   odam.nl         */
+/*   Updated: 2022/04/05 15:53:42 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Test(ft_str_assign_fail)
+Test(ft_str_assign)
 {
 	char	*str;
 
-	str = NULL;
-	massert(ft_str_assign_fail(&str, "foo"), (bool)false);
-	massert(ft_str_assign_fail(&str, NULL), (bool)true);
+	massert(ft_str_assign(&str, "foo"), (t_success)SUCCESS);
+	massert(ft_str_assign(&str, NULL), (t_success)ERROR);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

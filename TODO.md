@@ -1,4 +1,4 @@
-# TODO
+# TO DO
 * Add parameter & return descriptions for the part 1 & extra ft functions.
 * Make binary files get ignored by their gitignore rule by reset --HARDing them or smth.
 * Fix all existing tests by making them all use my own asserts, instead of Criterion functions.
@@ -8,14 +8,14 @@
 * Replace every variable named "number" with "nbr", "string" with "str" (and more?)
 
 
-# TODO just before evalling
+# TO DO just before evalling
 * Run norminette on all files.
 * `norminette $(git ls-tree -r master --name-only)`
 * `git ls-tree -r master --name-only`
 * Clone this repository.
 
 
-# TODO after evalling
+# TO DO after evalling
 * Maybe change all *chr to chr[], cause it makes it clearer it's about a string.
 * Use `git push -u github main` to have `git push` push to my private copy of this repo by default.
 * Use `git push -v` to see what `git push` pushes to by default.
