@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/04 14:13:59 by sbos          #+#    #+#                  #
-#    Updated: 2022/04/07 17:24:09 by sbos          ########   odam.nl          #
+#    Updated: 2022/04/07 18:21:10 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,24 +28,26 @@ TESTS_DIR := tests
 TESTS_OBJ_DIR := obj_tests
 
 MASSERT_DIR := libmassert
+CTESTER_DIR := libctester
 
 TESTER := tester
-
-# C_TESTER_DIR := /Users/sbos/Documents/Programming/c_tester
 
 TESTER_HEADERS :=												\
 	$(addprefix $(MAKEFILE_DIR)/, $(HEADERS))					\
 	$(TESTS_DIR)/libft_tests.h									\
 	$(MASSERT_DIR)/massert.h									\
-	tests/unstable/overwritten_headers/stdlib.h
+	$(CTESTER_DIR)/src/unstable/libft_unstable.h				\
+	$(CTESTER_DIR)/src/unstable/overwritten_headers/stdlib.h
+#   ^ Can this header be removed from here? If not, add the others from CTESTER_DIR?
 
-#	$(C_TESTER_DIR)/src/unstable/overwritten_headers/stdlib.h
-#   ^ Can this header be removed from here? If not, add the others from C_TESTER_DIR?
+#	tests/unstable/overwritten_headers/stdlib.h
 
 MASSERT := $(MASSERT_DIR)/libmassert.a
+CTESTER := $(CTESTER_DIR)/libctester.a
 
-TESTER_LIB_NAMES :=	\
-	$(MASSERT)		\
+TESTER_LIB_NAMES :=			\
+	$(MASSERT)				\
+	$(CTESTER)				\
 	$(MAKEFILE_DIR)/libft.a
 
 ################################################################################
@@ -66,7 +68,7 @@ $(START_OF_MAKEFILE_SHORTCUT):
 	$(MAKE) -C $(MAKEFILE_DIR) $(START_OF_MAKEFILE)
 
 .DEFAULT_GOAL := $(TESTER)
-$(TESTER): $(START_OF_MAKEFILE_SHORTCUT) $(MASSERT) $(TESTER_OBJECTS)
+$(TESTER): $(START_OF_MAKEFILE_SHORTCUT) $(MASSERT) $(CTESTER) $(TESTER_OBJECTS)
 	$(CC) $(CFLAGS) $(TESTER_INCLUDES) -g3 $(TESTER_OBJECTS) $(TESTER_LIB_FLAGS) -o $(TESTER)
 
 $(TESTS_OBJ_DIR)/%.o: $(TESTS_DIR)/%.c $(TESTER_HEADERS)
@@ -80,7 +82,10 @@ $(TESTS_OBJ_DIR)/%.o: $(TESTS_DIR)/%.c $(TESTER_HEADERS)
 $(MASSERT):
 	$(MAKE) -C $(MASSERT_DIR)
 
-.PHONY: $(MASSERT)
+$(CTESTER):
+	$(MAKE) -C $(CTESTER_DIR)
+
+.PHONY: $(MASSERT) $(CTESTER)
 
 ################################################################################
 
@@ -89,6 +94,7 @@ fclean_t:
 	rm -f $(TESTER)
 	$(MAKE) -C $(MAKEFILE_DIR) fclean
 	$(MAKE) -C $(MASSERT_DIR) fclean
+	$(MAKE) -C $(CTESTER_DIR) fclean
 
 re_t: fclean_t $(TESTER)
 
