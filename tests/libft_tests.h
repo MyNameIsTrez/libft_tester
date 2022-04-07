@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   tests.h                                            :+:    :+:            */
+/*   libft_tests.h                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/20 11:42:16 by sbos          #+#    #+#                 */
-/*   Updated: 2022/03/29 16:03:28 by sbos          ########   odam.nl         */
+/*   Updated: 2022/04/07 15:53:18 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 ////////////////////////////////////////////////////////////////////////////////
 
-#ifndef TESTS_H
-# define TESTS_H
+#ifndef LIBFT_TESTS_H
+# define LIBFT_TESTS_H
 
 ////////////////////////////////////////////////////////////////////////////////
 
 # include "libft.h"
 
+# include "helper_headers/uncalled_tester_functions.h"
+
 # include "massert.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>		// malloc, free, exit
-#include <fcntl.h>		// open
-#include <unistd.h>		// lseek, read, close
-#include <sys/wait.h>	// wait
+# include <stdlib.h>		// malloc, free, exit
+# include <fcntl.h>		// open
+# include <unistd.h>		// lseek, read, close
+# include <sys/wait.h>	// wait
 
 // For Unix
-#include <ctype.h>		// isalpha, ...
-#include <string.h>		// strlcat, strlcpy
+# include <ctype.h>		// isalpha, ...
+# include <string.h>		// strlcat, strlcpy
 
 ////////////////////////////////////////////////////////////////////////////////
 

@@ -1,4 +1,4 @@
-#include "tests.h"
+#include "libft_tests.h"
 
 Test(ft_strncmp)
 {

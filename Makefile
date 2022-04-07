@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/04 14:13:59 by sbos          #+#    #+#                  #
-#    Updated: 2022/03/31 18:15:19 by sbos          ########   odam.nl          #
+#    Updated: 2022/04/07 17:24:09 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,16 @@ MASSERT_DIR := libmassert
 
 TESTER := tester
 
-TESTER_HEADERS :=								\
-	$(addprefix $(MAKEFILE_DIR)/, $(HEADERS))	\
-	$(TESTS_DIR)/tests.h						\
-	$(MASSERT_DIR)/massert.h					\
+# C_TESTER_DIR := /Users/sbos/Documents/Programming/c_tester
+
+TESTER_HEADERS :=												\
+	$(addprefix $(MAKEFILE_DIR)/, $(HEADERS))					\
+	$(TESTS_DIR)/libft_tests.h									\
+	$(MASSERT_DIR)/massert.h									\
 	tests/unstable/overwritten_headers/stdlib.h
+
+#	$(C_TESTER_DIR)/src/unstable/overwritten_headers/stdlib.h
+#   ^ Can this header be removed from here? If not, add the others from C_TESTER_DIR?
 
 MASSERT := $(MASSERT_DIR)/libmassert.a
 
