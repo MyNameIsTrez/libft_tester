@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 14:30:21 by sbos          #+#    #+#                 */
-/*   Updated: 2022/04/06 15:34:19 by sbos          ########   odam.nl         */
+/*   Updated: 2022/04/08 15:38:43 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 #include "libft_tests.h"
 
 ////////////////////////////////////////////////////////////////////////////////
+
+STATIC int	get_negative_value(const char *str, bool *out_of_range);
+Test(STATIC_get_negative_value)
+{
+	bool out_of_range = false;
+
+	massert(get_negative_value("123", &out_of_range), -123);
+	massert(out_of_range, false);
+}
 
 Test(ft_atoi_range)
 {

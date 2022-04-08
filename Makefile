@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/04 14:13:59 by sbos          #+#    #+#                  #
-#    Updated: 2022/04/08 14:53:52 by sbos          ########   odam.nl          #
+#    Updated: 2022/04/08 15:28:11 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ MAKEFILE_DIR := $(PROJECT_NAME)
 
 export DEBUG := 1
 include $(MAKEFILE_DIR)/Makefile
-export NO_STATIC := 1
 
 ################################################################################
 

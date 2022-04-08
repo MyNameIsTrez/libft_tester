@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/20 11:42:16 by sbos          #+#    #+#                 */
-/*   Updated: 2022/04/07 18:05:01 by sbos          ########   odam.nl         */
+/*   Updated: 2022/04/08 15:01:27 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-# include <stdlib.h>		// malloc, free, exit
+# include <stdlib.h>	// malloc, free, exit
 # include <fcntl.h>		// open
-# include <unistd.h>		// lseek, read, close
+# include <unistd.h>	// lseek, read, close
 # include <sys/wait.h>	// wait
 
 // For Unix
 # include <ctype.h>		// isalpha, ...
-# include <string.h>		// strlcat, strlcpy
+# include <string.h>	// strlcat, strlcpy
 
 ////////////////////////////////////////////////////////////////////////////////
 
