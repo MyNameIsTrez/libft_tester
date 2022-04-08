@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/04 14:13:59 by sbos          #+#    #+#                  #
-#    Updated: 2022/04/07 18:32:34 by sbos          ########   odam.nl          #
+#    Updated: 2022/04/08 14:53:52 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,23 +57,23 @@ TESTER_INCLUDES := $(sort $(addprefix -I, $(dir $(TESTER_HEADERS))))
 
 TESTER_LIB_FLAGS := $(sort $(addprefix -L,$(dir $(TESTER_LIB_NAMES)))) $(sort $(patsubst lib%,-l%,$(basename $(notdir $(TESTER_LIB_NAMES)))))
 
-START_OF_MAKEFILE := all
-START_OF_MAKEFILE_SHORTCUT := foo$(START_OF_MAKEFILE)
+PROJECT_MAKEFILE_ENTRY := all
+PROJECT_MAKEFILE_ENTRY_SHORTCUT := foo$(PROJECT_MAKEFILE_ENTRY)
 
 ################################################################################
 
-$(START_OF_MAKEFILE_SHORTCUT):
-	$(MAKE) -C $(MAKEFILE_DIR) $(START_OF_MAKEFILE)
+$(PROJECT_MAKEFILE_ENTRY_SHORTCUT):
+	$(MAKE) -C $(MAKEFILE_DIR) $(PROJECT_MAKEFILE_ENTRY)
 
 .DEFAULT_GOAL := $(TESTER)
-$(TESTER): $(START_OF_MAKEFILE_SHORTCUT) $(MASSERT) $(CTESTER) $(TESTER_OBJECTS)
+$(TESTER): $(PROJECT_MAKEFILE_ENTRY_SHORTCUT) $(MASSERT) $(CTESTER) $(TESTER_OBJECTS)
 	$(CC) $(CFLAGS) $(TESTER_INCLUDES) -g3 $(TESTER_OBJECTS) $(TESTER_LIB_FLAGS) -o $(TESTER)
 
 $(TESTS_OBJ_DIR)/%.o: $(TESTS_DIR)/%.c $(TESTER_HEADERS)
 	mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(TESTER_INCLUDES) -c $< -o $@
 
-.PHONY: $(START_OF_MAKEFILE_SHORTCUT)
+.PHONY: $(PROJECT_MAKEFILE_ENTRY_SHORTCUT)
 
 ################################################################################
 
