@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/04 14:13:59 by sbos          #+#    #+#                  #
-#    Updated: 2022/04/07 18:21:10 by sbos          ########   odam.nl          #
+#    Updated: 2022/04/07 18:32:34 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,9 +38,7 @@ TESTER_HEADERS :=												\
 	$(MASSERT_DIR)/massert.h									\
 	$(CTESTER_DIR)/src/unstable/libft_unstable.h				\
 	$(CTESTER_DIR)/src/unstable/overwritten_headers/stdlib.h
-#   ^ Can this header be removed from here? If not, add the others from CTESTER_DIR?
-
-#	tests/unstable/overwritten_headers/stdlib.h
+# TODO: ^ Can this header be removed from here? If not, add the others from CTESTER_DIR?
 
 MASSERT := $(MASSERT_DIR)/libmassert.a
 CTESTER := $(CTESTER_DIR)/libctester.a
