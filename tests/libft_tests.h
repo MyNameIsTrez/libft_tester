@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/20 11:42:16 by sbos          #+#    #+#                 */
-/*   Updated: 2022/04/08 15:01:27 by sbos          ########   odam.nl         */
+/*   Updated: 2022/04/20 14:19:36 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include "libft.h"
 
 # include "massert.h"
+
+# include "libctester.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -49,18 +51,6 @@ extern t_list	*g_tests_lst;
 
 t_list	*test_lstnew(void *content);
 t_list	*test_lst_new_front(t_list **lst, void *content);
-
-////////////////////////////////////////////////////////////////////////////////
-
-#define Test(name)																\
-	void test_##name(void);														\
-	__attribute__((constructor))												\
-	void add_test_##name(void)													\
-	{																			\
-		static t_fn_info fn_info = {.fn_name = #name, .fn_ptr = &test_##name};	\
-		test_lst_new_front(&g_tests_lst, &fn_info);								\
-	}																			\
-	void test_##name(void)
 
 ////////////////////////////////////////////////////////////////////////////////
 

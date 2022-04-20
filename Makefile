@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/04 14:13:59 by sbos          #+#    #+#                  #
-#    Updated: 2022/04/08 15:28:11 by sbos          ########   odam.nl          #
+#    Updated: 2022/04/20 14:20:27 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ TESTER_HEADERS :=												\
 	$(addprefix $(MAKEFILE_DIR)/, $(HEADERS))					\
 	$(TESTS_DIR)/libft_tests.h									\
 	$(MASSERT_DIR)/massert.h									\
+	$(CTESTER_DIR)/libctester.h									\
 	$(CTESTER_DIR)/src/unstable/libft_unstable.h				\
 	$(CTESTER_DIR)/src/unstable/overwritten_headers/stdlib.h
 # TODO: ^ Can this header be removed from here? If not, add the others from CTESTER_DIR?
