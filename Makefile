@@ -1,112 +1,60 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: sbos <sbos@student.codam.nl>                 +#+                      #
-#                                                    +#+                       #
-#    Created: 2022/02/04 14:13:59 by sbos          #+#    #+#                  #
-#    Updated: 2022/04/20 14:24:26 by sbos          ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
+NAME := libtests.a
+LIBFT := libft/libft.a
 
-################################################################################
+CC := cc
 
-PROJECT_NAME := libft
+OBJ_DIR := obj
 
-################################################################################
+CFLAGS := -Wall -Wextra -Werror
+CFLAGS += -O3 # -O1 adds tail recursion detection
 
-MAKEFILE_DIR := $(PROJECT_NAME)
+LIBS :=
+HEADERS := libft/libft.h tests/libft_tests.h $(addprefix $(HOME)/Documents/Programming/libctester/, $(shell $(MAKE) -C $(HOME)/Documents/Programming/libctester/ -f headers.mk))
+SOURCES := $(wildcard tests/**/*.c)
 
-export DEBUG := 1
-include $(MAKEFILE_DIR)/Makefile
+FCLEANED_FILES := $(NAME)
 
-################################################################################
 
-TESTS_DIR := tests
-TESTS_OBJ_DIR := obj_tests
+ifdef DEBUG
+LIBS +=
+HEADERS +=
+CFLAGS += -g3 -Wconversion
+# CFLAGS += -fsanitize=address
+FCLEANED_FILES +=
+endif
 
-MASSERT_DIR := libmassert
-CTESTER_DIR := libctester
+OBJECT_PATHS := $(addprefix $(OBJ_DIR)/,$(SOURCES:.c=.o))
 
-TESTER := tester
+INCLUDES := $(sort $(addprefix -I, $(dir $(HEADERS))))
 
-TESTER_HEADERS :=												\
-	$(addprefix $(MAKEFILE_DIR)/, $(HEADERS))					\
-	$(TESTS_DIR)/libft_tests.h									\
-	$(MASSERT_DIR)/massert.h									\
-	$(CTESTER_DIR)/libctester.h									\
-	$(CTESTER_DIR)/src/unstable/overwritten_headers/stdlib.h
+# Only cleans when MAKE_DATA changes.
+DATA_FILE := .make_data
+MAKE_DATA := $(CFLAGS) $(SOURCES)
+ifneq ($(shell echo "$(MAKE_DATA)"), $(shell cat "$(DATA_FILE)" 2> /dev/null))
+PRE_RULES := clean
+endif
 
-MASSERT := $(MASSERT_DIR)/libmassert.a
-CTESTER := $(CTESTER_DIR)/libctester.a
+all: $(PRE_RULES) $(NAME)
 
-TESTER_LIB_NAMES :=			\
-	$(MASSERT)				\
-	$(CTESTER)				\
-	$(MAKEFILE_DIR)/libft.a
+$(NAME): $(LIBFT) $(OBJECT_PATHS)
+#	@cp $(LIBFT) $(NAME)
+	ar -rcs $(NAME) $(OBJECT_PATHS)
+	@echo "$(MAKE_DATA)" > $(DATA_FILE)
 
-################################################################################
+$(OBJ_DIR)/%.o: %.c $(HEADERS)
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-TESTER_SOURCES := $(wildcard $(TESTS_DIR)/**/*.c) $(TESTS_DIR)/tester.c
-TESTER_OBJECTS := $(patsubst $(TESTS_DIR)/%,$(TESTS_OBJ_DIR)/%,$(TESTER_SOURCES:.c=.o))
+$(LIBFT):
+	@$(MAKE) -C $(dir $(LIBFT)) DEBUG=1
 
-TESTER_INCLUDES := $(sort $(addprefix -I, $(dir $(TESTER_HEADERS))))
+clean:
+	rm -rf $(OBJ_DIR)/
 
-TESTER_LIB_FLAGS := $(sort $(addprefix -L,$(dir $(TESTER_LIB_NAMES)))) $(sort $(patsubst lib%,-l%,$(basename $(notdir $(TESTER_LIB_NAMES)))))
+fclean: clean
+	@$(MAKE) -C $(dir $(LIBFT)) fclean
+	rm -f $(FCLEANED_FILES)
 
-PROJECT_MAKEFILE_ENTRY := all
-PROJECT_MAKEFILE_ENTRY_SHORTCUT := foo$(PROJECT_MAKEFILE_ENTRY)
+re: fclean all
 
-################################################################################
-
-$(PROJECT_MAKEFILE_ENTRY_SHORTCUT):
-	$(MAKE) -C $(MAKEFILE_DIR) $(PROJECT_MAKEFILE_ENTRY)
-
-.DEFAULT_GOAL := $(TESTER)
-$(TESTER): $(PROJECT_MAKEFILE_ENTRY_SHORTCUT) $(MASSERT) $(CTESTER) $(TESTER_OBJECTS)
-	$(CC) $(CFLAGS) $(TESTER_INCLUDES) -g3 $(TESTER_OBJECTS) $(TESTER_LIB_FLAGS) -o $(TESTER)
-
-$(TESTS_OBJ_DIR)/%.o: $(TESTS_DIR)/%.c $(TESTER_HEADERS)
-	mkdir -p $(@D)
-	$(CC) $(CFLAGS) $(TESTER_INCLUDES) -c $< -o $@
-
-.PHONY: $(PROJECT_MAKEFILE_ENTRY_SHORTCUT)
-
-################################################################################
-
-$(MASSERT):
-	$(MAKE) -C $(MASSERT_DIR)
-
-$(CTESTER):
-	$(MAKE) -C $(CTESTER_DIR)
-
-.PHONY: $(MASSERT) $(CTESTER)
-
-################################################################################
-
-fclean_t:
-	rm -rf $(TESTS_OBJ_DIR)
-	rm -f $(TESTER)
-	$(MAKE) -C $(MAKEFILE_DIR) fclean
-	$(MAKE) -C $(MASSERT_DIR) fclean
-	$(MAKE) -C $(CTESTER_DIR) fclean
-
-re_t: fclean_t $(TESTER)
-
-.PHONY: fclean_t re_t
-
-################################################################################
-
-# TODO: Add grep for KOs so they are much easier to spot
-run_tests: run_test_1 run_test_2
-
-run_test_1:
-	make -C testers/libft-unit-test f
-
-run_test_2:
-	make -C testers/libftTester
-
-.PHONY: run_tests run_test_1 run_test_2
-
-################################################################################
+.PHONY: all clean fclean re

@@ -1,9 +1,3 @@
-[submodule "libmassert"]
-	path = libmassert
-	url = https://github.com/Mariusmivw/massert.git
 [submodule "libft"]
 	path = libft
 	url = https://github.com/MyNameIsTrez/libft
-[submodule "libctester"]
-	path = libctester
-	url = https://github.com/MyNameIsTrez/libctester
