@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
-#    Updated: 2022/04/22 18:53:57 by sbos          ########   odam.nl          #
+#    Updated: 2022/04/22 18:55:38 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CC := cc
 OBJ_DIR := obj
 
 CFLAGS := -Wall -Wextra -Werror
-CFLAGS += -O3 # -O1 adds tail recursion detection
+CFLAGS += -O3 # -O1 or higher adds tail recursion detection.
 
 HEADERS := libft/libft.h tests/libft_tests.h $(addprefix $(HOME)/Documents/Programming/libctester/, $(shell $(MAKE) -C $(HOME)/Documents/Programming/libctester/ -f headers.mk))
 SOURCES := $(wildcard tests/**/*.c)
