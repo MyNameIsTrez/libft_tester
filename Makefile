@@ -1,3 +1,17 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: sbos <sbos@student.codam.nl>                 +#+                      #
+#                                                    +#+                       #
+#    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
+#    Updated: 2022/04/22 18:43:12 by sbos          ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
+
+################################################################################
+
 NAME := libtests.a
 LIBFT := libft/libft.a
 
@@ -14,6 +28,7 @@ SOURCES := $(wildcard tests/**/*.c)
 
 FCLEANED_FILES := $(NAME)
 
+################################################################################
 
 ifdef DEBUG
 LIBS +=
@@ -23,7 +38,9 @@ CFLAGS += -g3 -Wconversion
 FCLEANED_FILES +=
 endif
 
-OBJECT_PATHS := $(addprefix $(OBJ_DIR)/,$(SOURCES:.c=.o))
+################################################################################
+
+OBJECTS := $(addprefix $(OBJ_DIR)/,$(SOURCES:.c=.o))
 
 INCLUDES := $(sort $(addprefix -I, $(dir $(HEADERS))))
 
@@ -34,11 +51,11 @@ ifneq ($(shell echo "$(MAKE_DATA)"), $(shell cat "$(DATA_FILE)" 2> /dev/null))
 PRE_RULES := clean
 endif
 
+################################################################################
+
 all: $(PRE_RULES) $(NAME)
 
-$(NAME): $(LIBFT) $(OBJECT_PATHS)
-#	@cp $(LIBFT) $(NAME)
-	ar -rcs $(NAME) $(OBJECT_PATHS)
+$(NAME): $(LIBFT) $(OBJECTS)
 	@echo "$(MAKE_DATA)" > $(DATA_FILE)
 
 $(OBJ_DIR)/%.o: %.c $(HEADERS)
@@ -47,6 +64,10 @@ $(OBJ_DIR)/%.o: %.c $(HEADERS)
 
 $(LIBFT):
 	@$(MAKE) -C $(dir $(LIBFT)) DEBUG=1
+
+.PHONY: all
+
+################################################################################
 
 clean:
 	rm -rf $(OBJ_DIR)/
@@ -57,4 +78,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: clean fclean re
+
+################################################################################
