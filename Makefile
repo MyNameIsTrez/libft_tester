@@ -6,11 +6,13 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
-#    Updated: 2022/04/22 18:55:38 by sbos          ########   odam.nl          #
+#    Updated: 2022/04/26 18:47:14 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 ################################################################################
+
+export DEBUG=1
 
 LIBFT := libft/libft.a
 
@@ -21,7 +23,11 @@ OBJ_DIR := obj
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -O3 # -O1 or higher adds tail recursion detection.
 
-HEADERS := libft/libft.h tests/libft_tests.h $(addprefix $(HOME)/Documents/Programming/libctester/, $(shell $(MAKE) -C $(HOME)/Documents/Programming/libctester/ -f headers.mk))
+HEADERS :=				\
+	libft/libft.h		\
+	tests/libft_tests.h	\
+	$(addprefix $(HOME)/Documents/Programming/libctester/, $(shell $(MAKE) -C $(HOME)/Documents/Programming/libctester/ -f headers.mk get_headers))
+
 SOURCES := $(wildcard tests/**/*.c)
 
 ################################################################################
@@ -51,7 +57,7 @@ all: $(PRE_RULES) $(LIBFT) $(OBJECTS)
 
 $(OBJ_DIR)/%.o: %.c $(HEADERS)
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(LIBFT):
 	@$(MAKE) -C $(dir $(LIBFT)) DEBUG=1

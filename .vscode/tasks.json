@@ -4,8 +4,8 @@
 		{
 			"label": "Build Tester",
 			"type": "shell",
-			"command": "make",
-			"args": [],
+			"command": "~/Documents/Programming/libctester/ctester.sh",
+			"args": [ "no, no running tests" ],
 			"problemMatcher": [
 				"$gcc"
 			],
