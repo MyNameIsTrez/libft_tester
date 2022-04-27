@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
-#    Updated: 2022/04/27 15:41:27 by sbos          ########   odam.nl          #
+#    Updated: 2022/04/27 16:27:12 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ HEADERS :=\
 
 ################################################################################
 
-SOURCES := $(wildcard $(TESTS_DIR)/**/*.c)
+SOURCES := $(shell find $(TESTS_DIR) -name "*.c")
 
 OBJECTS := $(addprefix $(OBJ_DIR)/,$(SOURCES:.c=.o))
 
