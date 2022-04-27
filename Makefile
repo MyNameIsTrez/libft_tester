@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
-#    Updated: 2022/04/27 15:18:15 by sbos          ########   odam.nl          #
+#    Updated: 2022/04/27 15:41:27 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ CFLAGS += -g3 -Wconversion
 # CFLAGS += -fsanitize=address
 
 HEADERS :=\
-	libft/libft.h\
 	$(TESTS_DIR)/libft_tests.h\
 	$(addprefix $(HOME)/Documents/Programming/libctester/, $(shell $(MAKE) -C $(HOME)/Documents/Programming/libctester/ -f headers.mk get_headers))
 
