@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
-#    Updated: 2022/04/26 18:47:14 by sbos          ########   odam.nl          #
+#    Updated: 2022/04/27 15:18:15 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,30 +18,28 @@ LIBFT := libft/libft.a
 
 CC := cc
 
+override TESTS_DIR := tests
 OBJ_DIR := obj
 
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -O3 # -O1 or higher adds tail recursion detection.
-
-HEADERS :=				\
-	libft/libft.h		\
-	tests/libft_tests.h	\
-	$(addprefix $(HOME)/Documents/Programming/libctester/, $(shell $(MAKE) -C $(HOME)/Documents/Programming/libctester/ -f headers.mk get_headers))
-
-SOURCES := $(wildcard tests/**/*.c)
-
-################################################################################
-
-ifdef DEBUG
 CFLAGS += -g3 -Wconversion
 # CFLAGS += -fsanitize=address
-endif
+
+HEADERS :=\
+	libft/libft.h\
+	$(TESTS_DIR)/libft_tests.h\
+	$(addprefix $(HOME)/Documents/Programming/libctester/, $(shell $(MAKE) -C $(HOME)/Documents/Programming/libctester/ -f headers.mk get_headers))
 
 ################################################################################
+
+SOURCES := $(wildcard $(TESTS_DIR)/**/*.c)
 
 OBJECTS := $(addprefix $(OBJ_DIR)/,$(SOURCES:.c=.o))
 
 INCLUDES := $(sort $(addprefix -I, $(dir $(HEADERS))))
+
+################################################################################
 
 # Only cleans when MAKE_DATA changes.
 DATA_FILE := .make_data
@@ -60,7 +58,7 @@ $(OBJ_DIR)/%.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(LIBFT):
-	@$(MAKE) -C $(dir $(LIBFT)) DEBUG=1
+	@$(MAKE) -C $(dir $(LIBFT))
 
 .PHONY: all
 
