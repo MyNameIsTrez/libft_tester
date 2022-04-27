@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
-#    Updated: 2022/04/27 16:27:12 by sbos          ########   odam.nl          #
+#    Updated: 2022/04/27 17:15:16 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@
 export DEBUG=1
 
 LIBFT := libft/libft.a
+
+LIBS := $(LIBFT)
 
 CC := cc
 
@@ -72,5 +74,12 @@ fclean: clean
 re: fclean all
 
 .PHONY: clean fclean re
+
+################################################################################
+
+get_libs:
+	@echo $(LIBS)
+
+.PHONY: get_libs
 
 ################################################################################
