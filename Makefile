@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
-#    Updated: 2022/04/27 17:15:16 by sbos          ########   odam.nl          #
+#    Updated: 2022/05/06 16:09:04 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ OBJ_DIR := obj
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -O3 # -O1 or higher adds tail recursion detection.
 CFLAGS += -g3 -Wconversion
+
 # CFLAGS += -fsanitize=address
 
 HEADERS :=\
