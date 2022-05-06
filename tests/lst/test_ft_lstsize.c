@@ -23,9 +23,9 @@ Test(ft_lstsize)
 
 	lst = NULL;
 
-	m_safe_assert(void *, ft_lst_new_front(&lst, "foo"), lst, NULL);
+	m_safe_assert(void *, ft_lst_new_front(&lst, "foo"), lst, NULL, true);
 	has_been_unstable = has_been_unstable OR was_malloc_unstable;
-	m_safe_assert(void *, ft_lst_new_front(&lst, "foo"), lst, NULL);
+	m_safe_assert(void *, ft_lst_new_front(&lst, "foo"), lst, NULL, true);
 	has_been_unstable = has_been_unstable OR was_malloc_unstable;
 
 	if (NOT has_been_unstable)

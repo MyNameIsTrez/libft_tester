@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 16:45:36 by sbos          #+#    #+#                 */
-/*   Updated: 2022/04/06 15:34:19 by sbos          ########   odam.nl         */
+/*   Updated: 2022/05/06 16:22:12 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 Test(ft_str_replace)
 {
-	m_safe_string_assert(ft_str_replace("foo\nbar", "\n", "\\n"), "foo\\nbar");
+	m_safe_string_assert(ft_str_replace("foo\nbar", "\n", "\\n"), "foo\\nbar", true);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

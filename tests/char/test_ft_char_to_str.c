@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 14:34:17 by sbos          #+#    #+#                 */
-/*   Updated: 2022/04/06 15:34:19 by sbos          ########   odam.nl         */
+/*   Updated: 2022/05/06 16:22:12 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 Test(ft_char_to_str)
 {
-	m_safe_string_assert(ft_char_to_str('c'), "c");
+	m_safe_string_assert(ft_char_to_str('c'), "c", true);
 	// massert((bool)(ft_char_to_str('\0') != NULL), true);
-	m_safe_string_assert(ft_char_to_str('\0'), "");
+	m_safe_string_assert(ft_char_to_str('\0'), "", true);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

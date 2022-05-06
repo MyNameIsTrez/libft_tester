@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/05 19:04:23 by sbos          #+#    #+#                 */
-/*   Updated: 2022/04/06 15:34:19 by sbos          ########   odam.nl         */
+/*   Updated: 2022/05/06 16:24:38 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Test(ft_lstnew)
 	char	foo[] = "bar";
 
 	t_list	*lst;
-	m_safe_assert(void *, lst = ft_lstnew(foo), lst, NULL);
+	m_safe_assert(void *, lst = ft_lstnew(foo), lst, NULL, true);
 
 	if (lst != NULL)
 	{

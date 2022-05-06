@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 12:44:57 by sbos          #+#    #+#                 */
-/*   Updated: 2022/04/06 15:34:19 by sbos          ########   odam.nl         */
+/*   Updated: 2022/05/06 16:24:38 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Test(ft_free_split)
 	char	*sep = "AB";
 	char	**split_str;
 
-	m_safe_assert(void *, split_str = ft_split_str(str, sep), split_str, NULL);
+	m_safe_assert(void *, split_str = ft_split_str(str, sep), split_str, NULL, true);
 
 	if (split_str != NULL)
 	{

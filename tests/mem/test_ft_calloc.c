@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 15:23:23 by sbos          #+#    #+#                 */
-/*   Updated: 2022/04/06 15:34:19 by sbos          ########   odam.nl         */
+/*   Updated: 2022/05/06 16:22:12 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Test(ft_calloc)
 	char	*str;
 
 	str = NULL;
-	m_safe_string_assert(str = ft_calloc(2, 2), str);
+	m_safe_string_assert(str = ft_calloc(2, 2), str, true);
 	if (str != NULL)
 	{
 		massert(str[0], (char)'\0');

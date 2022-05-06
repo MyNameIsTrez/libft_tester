@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/05 18:56:02 by sbos          #+#    #+#                 */
-/*   Updated: 2022/04/06 15:34:19 by sbos          ########   odam.nl         */
+/*   Updated: 2022/05/06 16:24:38 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Test(ft_lst_new_back)
 
 	lst = NULL;
 
-	m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, strdup("foo")), new_lst, NULL);
+	m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, strdup("foo")), new_lst, NULL, true);
 	has_been_unstable = has_been_unstable OR was_malloc_unstable;
 	if (NOT has_been_unstable)
 	{
@@ -32,7 +32,7 @@ Test(ft_lst_new_back)
 		massert((void *)lst, (void *)new_lst);
 	}
 
-	m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, strdup("bar")), new_lst, NULL);
+	m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, strdup("bar")), new_lst, NULL, true);
 	has_been_unstable = has_been_unstable OR was_malloc_unstable;
 	if (NOT has_been_unstable)
 	{
@@ -40,7 +40,7 @@ Test(ft_lst_new_back)
 		massert((void *)lst->next, (void *)new_lst);
 	}
 
-	m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, strdup("baz")), new_lst, NULL);
+	m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, strdup("baz")), new_lst, NULL, true);
 	has_been_unstable = has_been_unstable OR was_malloc_unstable;
 	if (NOT has_been_unstable)
 	{

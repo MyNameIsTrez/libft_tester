@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 17:30:44 by sbos          #+#    #+#                 */
-/*   Updated: 2022/04/06 15:34:19 by sbos          ########   odam.nl         */
+/*   Updated: 2022/05/06 16:22:12 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	increase_by_index(unsigned int i, char c)
 
 Test(ft_strmapi)
 {
-	m_safe_string_assert(ft_strmapi("foo", increase_by_index), "fpq");
+	m_safe_string_assert(ft_strmapi("foo", increase_by_index), "fpq", true);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
