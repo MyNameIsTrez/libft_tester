@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 17:11:34 by sbos          #+#    #+#                 */
-/*   Updated: 2022/05/06 16:22:12 by sbos          ########   odam.nl         */
+/*   Updated: 2022/06/21 10:57:41 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 Test(ft_strjoin)
 {
-	m_safe_string_assert(ft_strjoin("lorem ipsum", "dolor sit amet"), "lorem ipsumdolor sit amet", true);
+	m_safe_string_assert_free(ft_strjoin("lorem ipsum", "dolor sit amet"), "lorem ipsumdolor sit amet", true);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

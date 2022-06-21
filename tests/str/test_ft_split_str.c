@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 12:59:45 by sbos          #+#    #+#                 */
-/*   Updated: 2022/05/06 16:24:38 by sbos          ########   odam.nl         */
+/*   Updated: 2022/06/21 11:30:21 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Test(ft_split_str)
 	}
 
 	{
-		char	*str = "AB1ABAB2AB3AB";
+		char	*str = "AB4ABAB5AB6AB";
 		char	*sep = "AB";
 		char	**split_str;
 
@@ -45,10 +45,10 @@ Test(ft_split_str)
 		if (split_str != NULL)
 		{
 			m_safe_string_assert(split_str[0], "", true);
-			m_safe_string_assert(split_str[1], "1", true);
+			m_safe_string_assert(split_str[1], "4", true);
 			m_safe_string_assert(split_str[2], "", true);
-			m_safe_string_assert(split_str[3], "2", true);
-			m_safe_string_assert(split_str[4], "3", true);
+			m_safe_string_assert(split_str[3], "5", true);
+			m_safe_string_assert(split_str[4], "6", true);
 			// massert((void *)split_str[5], NULL);
 			m_safe_string_assert(split_str[5], "", true);
 			massert((void *)split_str[6], NULL);

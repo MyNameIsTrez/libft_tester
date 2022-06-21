@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 12:45:44 by sbos          #+#    #+#                 */
-/*   Updated: 2022/05/06 16:24:38 by sbos          ########   odam.nl         */
+/*   Updated: 2022/06/21 11:32:55 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ Test(ft_rejoin_split)
 		char	**split;
 		m_safe_assert(void *, split = ft_split_str(str, sep), split, NULL, true);
 		if (split != NULL)
-			m_safe_string_assert(ft_rejoin_split(split, "C"), "C1CC2C3", true);
+		{
+			m_safe_string_assert_free(ft_rejoin_split(split, "C"), "C1CC2C3", true);
+			ft_free_split(&split);
+		}
 	}
 
 	{
@@ -35,7 +38,10 @@ Test(ft_rejoin_split)
 		char	**split;
 		m_safe_assert(void *, split = ft_split_str(str, sep), split, NULL, true);
 		if (split != NULL)
-			m_safe_string_assert(ft_rejoin_split(split, "C"), "C1CC2C3C", true);
+		{
+			m_safe_string_assert_free(ft_rejoin_split(split, "C"), "C1CC2C3C", true);
+			ft_free_split(&split);
+		}
 	}
 }
 
