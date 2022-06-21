@@ -32,7 +32,7 @@ Test(ft_lstadd_front)
 	ft_lstadd_front(&lst, new);
 
 	if (NOT has_been_unstable)
-		massert(ft_lstsize(lst), 2);
+		massert(ft_lstsize(lst), (size_t)2);
 
 	ft_lstclear(&lst, NULL);
 }

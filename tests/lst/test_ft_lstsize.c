@@ -29,7 +29,7 @@ Test(ft_lstsize)
 	has_been_unstable = has_been_unstable OR was_malloc_unstable;
 
 	if (NOT has_been_unstable)
-		massert(ft_lstsize(lst), 2);
+		massert(ft_lstsize(lst), (size_t)2);
 
 	ft_lstclear(&lst, NULL);
 }
