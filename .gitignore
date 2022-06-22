@@ -19,7 +19,9 @@
 !.gitmodules
 
 # Miscellaneous
-!.vscode/*.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
 !.normignore
 !TODO.md
 !README.md
