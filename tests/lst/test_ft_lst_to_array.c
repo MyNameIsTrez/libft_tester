@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/21 12:10:59 by sbos          #+#    #+#                 */
-/*   Updated: 2022/06/21 12:44:41 by sbos          ########   odam.nl         */
+/*   Updated: 2022/06/22 16:26:02 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,25 @@ Test(ft_lst_to_array)
 		ft_lst_new_front(&lst, "bar");
 		m_safe_assert(void *, lst, lst, NULL, true);
 
+		ft_lst_new_front(&lst, "baz");
+		m_safe_assert(void *, lst, lst, NULL, true);
+
+		ft_lst_new_front(&lst, "beep");
+		m_safe_assert(void *, lst, lst, NULL, true);
+
+		ft_lst_new_front(&lst, "boop");
+		m_safe_assert(void *, lst, lst, NULL, true);
+
 		void	**array = ft_lst_to_array(lst);
 		m_safe_assert(void *, array, array, NULL, true);
 
 		if (array != NULL)
 		{
-			m_safe_string_assert(array[0], "bar", true);
-			m_safe_string_assert(array[1], "foo", true);
+			m_safe_string_assert(array[0], "boop", true);
+			m_safe_string_assert(array[1], "beep", true);
+			m_safe_string_assert(array[2], "baz", true);
+			m_safe_string_assert(array[3], "bar", true);
+			m_safe_string_assert(array[4], "foo", true);
 		}
 
 		ft_lstclear(&lst, NULL);

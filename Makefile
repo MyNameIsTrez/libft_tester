@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
-#    Updated: 2022/06/21 11:10:23 by sbos          ########   odam.nl          #
+#    Updated: 2022/06/22 15:29:08 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ export DEBUG=1
 LIBFT := libft/libft.a
 
 LIBS := $(LIBFT)
+
+LIBCTESTER_PATH := libctester
 
 CC := cc
 
@@ -71,6 +73,7 @@ clean:
 
 fclean: clean
 	@$(MAKE) -C $(dir $(LIBFT)) fclean
+	@$(MAKE) -C $(LIBCTESTER_PATH) fclean
 
 re: fclean all
 
