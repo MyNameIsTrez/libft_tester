@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/05 18:37:13 by sbos          #+#    #+#                 */
-/*   Updated: 2022/06/23 15:21:59 by sbos          ########   odam.nl         */
+/*   Updated: 2022/06/29 12:31:22 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ Test(ft_read_grid_from_file)
 {
 	{
 		t_grid		grid;
-		t_success	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/empty");
-		massert_success(success, SUCCESS);
+		t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/empty");
+		massert_success(success, OK);
 		massert(grid.width, (size_t)0);
 		massert(grid.height, (size_t)0);
 		massert(grid.cells[0], (char *)NULL);
@@ -30,8 +30,8 @@ Test(ft_read_grid_from_file)
 
 	{
 		t_grid		grid;
-		t_success	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/no_trailing_newline");
-		massert_success(success, SUCCESS);
+		t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/no_trailing_newline");
+		massert_success(success, OK);
 		massert(grid.width, (size_t)13);
 		massert(grid.height, (size_t)5);
 		m_safe_string_assert_free(grid.cells[0], "1111111111111", true);
@@ -44,14 +44,14 @@ Test(ft_read_grid_from_file)
 
 	{
 		t_grid		grid;
-		t_success	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/not_rectangular");
+		t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/not_rectangular");
 		massert_success(success, ERROR_NONRECTANGULAR_GRID);
 	}
 
 	{
 		t_grid		grid;
-		t_success	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/trailing_newline");
-		massert_success(success, SUCCESS);
+		t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/trailing_newline");
+		massert_success(success, OK);
 		massert(grid.width, (size_t)13);
 		massert(grid.height, (size_t)5);
 		m_safe_string_assert_free(grid.cells[0], "1111111111111", true);
