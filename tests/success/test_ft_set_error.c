@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/23 13:53:06 by sbos          #+#    #+#                 */
-/*   Updated: 2022/06/29 12:31:22 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/06 13:54:41 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 Test(ft_get_and_set_error)
 {
 	massert_success(ft_get_error(), OK);
-	ft_set_error(ERROR_TOO_FEW_ARGS);
-	massert_success(ft_get_error(), ERROR_TOO_FEW_ARGS);
+	ft_set_error(FT_ERROR_TOO_FEW_ARGS);
+	massert_success(ft_get_error(), FT_ERROR_TOO_FEW_ARGS);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

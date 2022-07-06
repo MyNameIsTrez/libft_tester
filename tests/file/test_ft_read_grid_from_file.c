@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/05 18:37:13 by sbos          #+#    #+#                 */
-/*   Updated: 2022/06/29 12:31:22 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/06 13:58:02 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ Test(ft_read_grid_from_file)
 	{
 		t_grid		grid;
 		t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/not_rectangular");
-		massert_success(success, ERROR_NONRECTANGULAR_GRID);
+		massert_success(success, ERROR);
+		massert_success(ft_get_error(), FT_ERROR_NON_RECTANGULAR_GRID);
 	}
 
 	{
