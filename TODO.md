@@ -1,5 +1,6 @@
 # TO DO
-* Replace all char [] with char *.
+* Replace all char [] with char *
+* Add all headers to HEADERS in Makefile as compilation requirements
 
 * Add parameter & return descriptions for the part 1 & extra ft functions.
 * Make binary files get ignored by their gitignore rule by reset --HARDing them or smth.
