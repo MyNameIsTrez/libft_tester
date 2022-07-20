@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/19 16:27:25 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/20 14:54:48 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/20 14:57:31 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,11 @@ Test(ft_vector)
 		row_0 = vector_new(sizeof(int));
 		vector_push(&ints_2d, &row_0);
 		v = 1;
+
+		// WARNING:
+		// "vector_push(&row_0, &v);" doesn't work since whenever row_0
+		// is realloced, ints_2d wouldn't be aware it row_0 its address moved
+
 		vector_push(&ints_2d[0], &v);
 		v = 2;
 		vector_push(&ints_2d[0], &v);
