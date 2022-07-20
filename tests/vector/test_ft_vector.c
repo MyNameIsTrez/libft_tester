@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/19 16:27:25 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/20 14:57:31 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/20 16:35:20 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,40 +22,44 @@ Test(ft_vector)
 		int	*ints;
 		int	v;
 
-		ints = vector_new(sizeof(int));
+		m_safe_assert(void *, ints = vector_new(sizeof(int)), ints, NULL, true);
 
-		vector_reserve(&ints, 1);
+		m_safe_assert(int, (int)vector_reserve(&ints, 1), OK, ERROR, false);
 
 		v = 1;
-		vector_push(&ints, &v);
+		m_safe_assert(int, (int)vector_push(&ints, &v), OK, ERROR, false);
 		v = 2;
-		vector_push(&ints, &v);
+		m_safe_assert(int, (int)vector_push(&ints, &v), OK, ERROR, false);
 		v = 3;
-		vector_push(&ints, &v);
+		m_safe_assert(int, (int)vector_push(&ints, &v), OK, ERROR, false);
 
-		massert(ints[0], 1);
-		massert(ints[1], 2);
-		massert(ints[2], 3);
-
+		if (NOT was_malloc_unstable)
+		{
+			massert(ints[0], 1);
+			massert(ints[1], 2);
+			massert(ints[2], 3);
+		}
 		vector_free(ints);
 	}
 	{
 		int	*ints;
 		int	v;
 
-		ints = vector_new_reserved(sizeof(int), 1);
+		m_safe_assert(void *, ints = vector_new_reserved(sizeof(int), 1), ints, NULL, true);
 
 		v = 1;
-		vector_push(&ints, &v);
+		m_safe_assert(int, (int)vector_push(&ints, &v), OK, ERROR, false);
 		v = 2;
-		vector_push(&ints, &v);
+		m_safe_assert(int, (int)vector_push(&ints, &v), OK, ERROR, false);
 		v = 3;
-		vector_push(&ints, &v);
+		m_safe_assert(int, (int)vector_push(&ints, &v), OK, ERROR, false);
 
-		massert(ints[0], 1);
-		massert(ints[1], 2);
-		massert(ints[2], 3);
-
+		if (NOT was_malloc_unstable)
+		{
+			massert(ints[0], 1);
+			massert(ints[1], 2);
+			massert(ints[2], 3);
+		}
 		vector_free(ints);
 	}
 	{
@@ -64,53 +68,62 @@ Test(ft_vector)
 		int	*row_1;
 		int	v;
 
-		ints_2d = vector_new(sizeof(int *));
+		m_safe_assert(void *, ints_2d = vector_new(sizeof(int *)), ints_2d, NULL, true);
 
 
-		row_0 = vector_new(sizeof(int));
-		vector_push(&ints_2d, &row_0);
+		m_safe_assert(void *, row_0 = vector_new(sizeof(int)), row_0, NULL, false);
+		m_safe_assert(int, (int)vector_push(&ints_2d, &row_0), OK, ERROR, false);
 		v = 1;
 
 		// WARNING:
 		// "vector_push(&row_0, &v);" doesn't work since whenever row_0
-		// is realloced, ints_2d wouldn't be aware it row_0 its address moved
+		// is realloced, ints_2d wouldn't be aware row_0 its address moved
 
-		vector_push(&ints_2d[0], &v);
+		m_safe_assert(int, (int)vector_push(&ints_2d[0], &v), OK, ERROR, false);
 		v = 2;
-		vector_push(&ints_2d[0], &v);
+		m_safe_assert(int, (int)vector_push(&ints_2d[0], &v), OK, ERROR, false);
 		v = 3;
-		vector_push(&ints_2d[0], &v);
+		m_safe_assert(int, (int)vector_push(&ints_2d[0], &v), OK, ERROR, false);
 
-		massert(ints_2d[0][0], 1);
-		massert(ints_2d[0][1], 2);
-		massert(ints_2d[0][2], 3);
+		if (NOT was_malloc_unstable)
+		{
+			massert(ints_2d[0][0], 1);
+			massert(ints_2d[0][1], 2);
+			massert(ints_2d[0][2], 3);
+		}
 
 
-		row_1 = vector_new(sizeof(int));
+		m_safe_assert(void *, row_1 = vector_new(sizeof(int)), row_1, NULL, false);
 		v = 4;
-		vector_push(&row_1, &v);
+		m_safe_assert(int, (int)vector_push(&row_1, &v), OK, ERROR, false);
 		v = 5;
-		vector_push(&row_1, &v);
+		m_safe_assert(int, (int)vector_push(&row_1, &v), OK, ERROR, false);
 		v = 6;
-		vector_push(&row_1, &v);
-		vector_push(&ints_2d, &row_1);
+		m_safe_assert(int, (int)vector_push(&row_1, &v), OK, ERROR, false);
+		m_safe_assert(int, (int)vector_push(&ints_2d, &row_1), OK, ERROR, false);
 
-		massert(ints_2d[1][0], 4);
-		massert(ints_2d[1][1], 5);
-		massert(ints_2d[1][2], 6);
+		if (NOT was_malloc_unstable)
+		{
+			massert(ints_2d[1][0], 4);
+			massert(ints_2d[1][1], 5);
+			massert(ints_2d[1][2], 6);
+		}
 
 
-		vector_push_new_vector(&ints_2d, sizeof(int));
+		m_safe_assert(int, (int)vector_push_new_vector(&ints_2d, sizeof(int)), OK, ERROR, false);
 		v = 7;
-		vector_push(&ints_2d[2], &v);
+		m_safe_assert(int, (int)vector_push(&ints_2d[2], &v), OK, ERROR, false);
 		v = 8;
-		vector_push(&ints_2d[2], &v);
+		m_safe_assert(int, (int)vector_push(&ints_2d[2], &v), OK, ERROR, false);
 		v = 9;
-		vector_push(&ints_2d[2], &v);
+		m_safe_assert(int, (int)vector_push(&ints_2d[2], &v), OK, ERROR, false);
 
-		massert(ints_2d[2][0], 7);
-		massert(ints_2d[2][1], 8);
-		massert(ints_2d[2][2], 9);
+		if (NOT was_malloc_unstable)
+		{
+			massert(ints_2d[2][0], 7);
+			massert(ints_2d[2][1], 8);
+			massert(ints_2d[2][2], 9);
+		}
 	}
 	vector_clean_up();
 }
