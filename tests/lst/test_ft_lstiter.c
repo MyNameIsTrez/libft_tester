@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/05 19:02:50 by sbos          #+#    #+#                 */
-/*   Updated: 2022/05/06 16:24:38 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/20 17:39:02 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,26 @@ static void foo(void *content)
 Test(ft_lstiter)
 {
 	t_list	*lst;
-	int		has_been_unstable = 0;
 
 	lst = NULL;
 
-	m_safe_assert(void *, ft_lst_new_back(&lst, strdup("foo")), ft_lstlast(lst), NULL, true);
-	has_been_unstable = has_been_unstable OR was_malloc_unstable;
-	m_safe_assert(void *, ft_lst_new_back(&lst, strdup("bar")), ft_lstlast(lst), NULL, true);
-	has_been_unstable = has_been_unstable OR was_malloc_unstable;
-	m_safe_assert(void *, ft_lst_new_back(&lst, strdup("baz")), ft_lstlast(lst), NULL, true);
-	has_been_unstable = has_been_unstable OR was_malloc_unstable;
-
-	ft_lstiter(lst, foo);
-
-	if (NOT has_been_unstable)
+	if (NOT was_malloc_unstable)
 	{
+		m_safe_assert(void *, ft_lst_new_back(&lst, strdup("foo")), ft_lstlast(lst), NULL, false);
+	}
+	if (NOT was_malloc_unstable)
+	{
+		m_safe_assert(void *, ft_lst_new_back(&lst, strdup("bar")), ft_lstlast(lst), NULL, false);
+	}
+	if (NOT was_malloc_unstable)
+	{
+		m_safe_assert(void *, ft_lst_new_back(&lst, strdup("baz")), ft_lstlast(lst), NULL, false);
+	}
+
+
+	if (NOT was_malloc_unstable)
+	{
+		ft_lstiter(lst, foo);
 		massert((char *)lst->content, "xoo");
 		massert((char *)lst->next->content, "xar");
 		massert((char *)lst->next->next->content, "xaz");

@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 16:48:14 by sbos          #+#    #+#                 */
-/*   Updated: 2022/06/21 10:29:57 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/20 17:25:08 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Test(ft_stralloc)
 {
 	char	*str;
 
-	m_safe_string_assert(str = ft_stralloc(5), str, true);
+	m_safe_string_assert(str = ft_stralloc(5), str, false);
 	if (NOT was_malloc_unstable)
 	{
 		str[0] = 'h';

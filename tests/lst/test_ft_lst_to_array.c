@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/21 12:10:59 by sbos          #+#    #+#                 */
-/*   Updated: 2022/06/22 16:26:02 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/20 17:47:54 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,29 +27,37 @@ Test(ft_lst_to_array)
 		ft_lstclear(&lst, NULL);
 		free(array);
 	}
-
+}
+Test(ft_lst_to_array2)
+{
 	{
 		t_list	*lst = NULL;
+		void **array = NULL;
 
 		ft_lst_new_front(&lst, "foo");
-		m_safe_assert(void *, lst, lst, NULL, true);
+		if (NOT was_malloc_unstable)
+		{
+			ft_lst_new_front(&lst, "bar");
+		}
+		if (NOT was_malloc_unstable)
+		{
+			ft_lst_new_front(&lst, "baz");
+		}
+		if (NOT was_malloc_unstable)
+		{
+			ft_lst_new_front(&lst, "beep");
+		}
+		if (NOT was_malloc_unstable)
+		{
+			ft_lst_new_front(&lst, "boop");
+		}
+		if (NOT was_malloc_unstable)
+		{
+			array = ft_lst_to_array(lst);
+			m_safe_assert(void *, array, array, NULL, false);
+		}
 
-		ft_lst_new_front(&lst, "bar");
-		m_safe_assert(void *, lst, lst, NULL, true);
-
-		ft_lst_new_front(&lst, "baz");
-		m_safe_assert(void *, lst, lst, NULL, true);
-
-		ft_lst_new_front(&lst, "beep");
-		m_safe_assert(void *, lst, lst, NULL, true);
-
-		ft_lst_new_front(&lst, "boop");
-		m_safe_assert(void *, lst, lst, NULL, true);
-
-		void	**array = ft_lst_to_array(lst);
-		m_safe_assert(void *, array, array, NULL, true);
-
-		if (array != NULL)
+		if (array != NULL && NOT was_malloc_unstable)
 		{
 			m_safe_string_assert(array[0], "boop", true);
 			m_safe_string_assert(array[1], "beep", true);
