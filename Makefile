@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
-#    Updated: 2022/06/22 15:29:08 by sbos          ########   odam.nl          #
+#    Updated: 2022/07/20 11:59:25 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -O3 # -O1 or higher adds tail recursion detection.
 CFLAGS += -g3 -Wconversion
 
-# CFLAGS += -fsanitize=address
+CFLAGS += -fsanitize=address
 
 HEADERS :=\
 	$(TESTS_DIR)/libft_tests.h\

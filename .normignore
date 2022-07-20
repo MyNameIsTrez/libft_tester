@@ -1,4 +1,6 @@
 *
+!*/
+!*.[ch]
 tests
 libmassert
 testers

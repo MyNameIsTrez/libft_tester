@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 17:10:14 by sbos          #+#    #+#                 */
-/*   Updated: 2022/04/06 15:34:19 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/20 12:13:20 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 static void	increase_by_index(unsigned int i, char *c)
 {
-	(*(unsigned int *)c) += i;
+	*c += (char)i;
 }
 
 Test(ft_striteri)

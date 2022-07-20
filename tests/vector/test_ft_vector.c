@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/19 16:27:25 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/19 16:28:17 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/20 12:42:57 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,47 @@
 
 Test(ft_vector)
 {
-	int	*ints;
-	int	v;
+	{
+		int	*ints;
+		int	v;
 
-	ints = vector_new(sizeof(int));
+		ints = vector_new(sizeof(int));
 
-	vector_reserve(&ints, 1);
+		vector_reserve(&ints, 1);
 
-	v = 4;
-	vector_push(&ints, &v);
-	v = 2;
-	vector_push(&ints, &v);
-	v = 0;
-	vector_push(&ints, &v);
+		v = 1;
+		vector_push(&ints, &v);
+		v = 2;
+		vector_push(&ints, &v);
+		v = 3;
+		vector_push(&ints, &v);
 
-	massert(ints[0], 4);
-	massert(ints[1], 2);
-	massert(ints[2], 0);
+		massert(ints[0], 1);
+		massert(ints[1], 2);
+		massert(ints[2], 3);
+
+		vector_free(ints);
+	}
+	{
+		int	*ints;
+		int	v;
+
+		ints = vector_new_reserved(sizeof(int), 1);
+
+		v = 1;
+		vector_push(&ints, &v);
+		v = 2;
+		vector_push(&ints, &v);
+		v = 3;
+		vector_push(&ints, &v);
+
+		massert(ints[0], 1);
+		massert(ints[1], 2);
+		massert(ints[2], 3);
+
+		vector_free(ints);
+	}
+	vector_clean_up();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
