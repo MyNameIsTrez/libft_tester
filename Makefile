@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
-#    Updated: 2022/07/20 11:59:25 by sbos          ########   odam.nl          #
+#    Updated: 2022/07/21 13:47:25 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,14 @@ OBJ_DIR := obj
 
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -O3 # -O1 or higher adds tail recursion detection.
-CFLAGS += -g3 -Wconversion
 
+ifdef DEBUG
+CFLAGS += -g3 -Wconversion
+endif
+
+ifdef SAN
 CFLAGS += -fsanitize=address
+endif
 
 HEADERS :=\
 	$(TESTS_DIR)/libft_tests.h\

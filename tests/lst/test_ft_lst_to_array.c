@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/21 12:10:59 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/20 17:47:54 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/21 14:48:53 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Test(ft_lst_to_array)
 		m_safe_assert(void *, array, array, NULL, true);
 
 		ft_lstclear(&lst, NULL);
-		free(array);
+		ft_free(&array);
 	}
 }
 Test(ft_lst_to_array2)
@@ -67,7 +67,7 @@ Test(ft_lst_to_array2)
 		}
 
 		ft_lstclear(&lst, NULL);
-		free(array);
+		ft_free(&array);
 	}
 }
 

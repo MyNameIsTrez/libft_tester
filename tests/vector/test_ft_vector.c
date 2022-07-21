@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/19 16:27:25 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/20 17:23:32 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/21 14:33:37 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ Test(ft_vector)
 		massert(ints[1], 2);
 		massert(ints[2], 3);
 	}
-	vector_free(ints);
+
+	// vector_free(ints);
 }
 
 Test(ft_vector2)
@@ -186,6 +187,8 @@ Test(ft_vector3)
 		massert(ints_2d[2][1], 8);
 		massert(ints_2d[2][2], 9);
 	}
+
+	// vector_free(ints_2d);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
