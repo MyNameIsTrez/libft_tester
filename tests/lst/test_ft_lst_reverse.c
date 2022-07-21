@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 15:08:35 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/21 15:22:59 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/21 16:43:03 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ Test(ft_lst_reverse)
 
 	lst = NULL;
 
-	m_safe_assert(void *, ft_lst_new_back(&lst, strdup("foo")), ft_lstlast(lst), NULL, false);
+	m_safe_assert(void *, ft_lst_new_back(&lst, "foo"), ft_lstlast(lst), NULL, false);
 	if (NOT was_malloc_unstable)
 	{
-		m_safe_assert(void *, ft_lst_new_back(&lst, strdup("bar")), ft_lstlast(lst), NULL, false);
+		m_safe_assert(void *, ft_lst_new_back(&lst, "bar"), ft_lstlast(lst), NULL, false);
 	}
 	if (NOT was_malloc_unstable)
 	{
-		m_safe_assert(void *, ft_lst_new_back(&lst, strdup("baz")), ft_lstlast(lst), NULL, false);
+		m_safe_assert(void *, ft_lst_new_back(&lst, "baz"), ft_lstlast(lst), NULL, false);
 	}
 
 	if (NOT was_malloc_unstable)
@@ -41,7 +41,7 @@ Test(ft_lst_reverse)
 		massert((void *)lst->next->next->next, NULL);
 	}
 
-	ft_lstclear(&lst, &free);
+	ft_lstclear(&lst, NULL);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

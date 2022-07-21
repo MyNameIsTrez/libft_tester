@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/05 19:02:50 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/21 15:21:36 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/21 16:46:47 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,25 @@ Test(ft_lstiter)
 	t_list	*lst;
 
 	lst = NULL;
+	char *str;
 
+	str = strdup("foo");
+	m_safe_assert(void *, ft_lst_new_back(&lst, str), ft_lstlast(lst), NULL, false);
+	if (was_malloc_unstable)
+		ft_free(&str);
 	if (NOT was_malloc_unstable)
 	{
-		m_safe_assert(void *, ft_lst_new_back(&lst, strdup("foo")), ft_lstlast(lst), NULL, false);
+		str = strdup("bar");
+		m_safe_assert(void *, ft_lst_new_back(&lst, str), ft_lstlast(lst), NULL, false);
+		if (was_malloc_unstable)
+			ft_free(&str);
 	}
 	if (NOT was_malloc_unstable)
 	{
-		m_safe_assert(void *, ft_lst_new_back(&lst, strdup("bar")), ft_lstlast(lst), NULL, false);
-	}
-	if (NOT was_malloc_unstable)
-	{
-		m_safe_assert(void *, ft_lst_new_back(&lst, strdup("baz")), ft_lstlast(lst), NULL, false);
+		str = strdup("baz");
+		m_safe_assert(void *, ft_lst_new_back(&lst, str), ft_lstlast(lst), NULL, false);
+		if (was_malloc_unstable)
+			ft_free(&str);
 	}
 
 
