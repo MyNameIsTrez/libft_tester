@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 15:23:23 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/22 13:40:40 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/22 18:29:35 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Test(ft_remalloc_existing)
 {
 	char	*str;
 
-	m_safe_string_assert(str = ft_malloc(2), str, false);
+	m_safe_malloc_assert(str = ft_malloc(2), false);
 	if (NOT was_malloc_unstable)
 	{
 		str[0] = 'a';
@@ -34,7 +34,7 @@ Test(ft_remalloc_existing)
 	// ft_malloc call failed.
 	was_malloc_unstable = false;
 
-	m_safe_string_assert(str = ft_remalloc(str, 2, 4), str, false);
+	m_safe_malloc_assert(str = ft_remalloc(str, 2, 4), false);
 	if (NOT was_malloc_unstable)
 	{
 		str[2] = 'c';
@@ -49,7 +49,7 @@ Test(ft_remalloc_new)
 {
 	char	*str;
 
-	m_safe_string_assert(str = ft_remalloc(NULL, 0, 2), str, false);
+	m_safe_malloc_assert(str = ft_remalloc(NULL, 0, 2), false);
 	if (NOT was_malloc_unstable)
 	{
 		str[0] = 'a';
@@ -64,7 +64,7 @@ Test(ft_remalloc_size_zero)
 {
 	char	*str;
 
-	m_safe_string_assert(str = ft_malloc(2), str, false);
+	m_safe_malloc_assert(str = ft_malloc(2), false);
 	if (NOT was_malloc_unstable)
 	{
 		str[0] = 'a';
@@ -80,7 +80,7 @@ Test(ft_remalloc_new_and_size_zero)
 {
 	char	*str;
 
-	m_safe_string_assert(str = ft_remalloc(NULL, 0, 0), str, false);
+	m_safe_malloc_assert(str = ft_remalloc(NULL, 0, 0), false);
 	massert(ft_remalloc(str, 0, 0), NULL);
 }
 
