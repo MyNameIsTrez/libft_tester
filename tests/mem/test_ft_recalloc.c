@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_calloc.c                                   :+:    :+:            */
+/*   test_ft_recalloc.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 15:23:23 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/22 13:30:47 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/22 13:39:10 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,60 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Test(ft_calloc)
+Test(ft_recalloc_existing)
 {
 	char	*str;
 
-	m_safe_string_assert(str = ft_calloc(2, 2), str, true);
-	if (str != NULL)
+	m_safe_string_assert(str = ft_calloc(2, 1), str, false);
+	if (NOT was_malloc_unstable)
 	{
 		massert(str[0], (char)'\0');
 		massert(str[1], (char)'\0');
+	}
+
+	// Since ft_recalloc() callocs a new string, it is fine if the previous
+	// ft_calloc call failed.
+	was_malloc_unstable = false;
+
+	m_safe_string_assert(str = ft_recalloc(str, 2, 4), str, false);
+	if (NOT was_malloc_unstable)
+	{
 		massert(str[2], (char)'\0');
 		massert(str[3], (char)'\0');
 	}
 }
 
-Test(ft_calloc_count_0)
+Test(ft_recalloc_new)
 {
-	massert(ft_calloc(0, 2), NULL);
+	char	*str;
+
+	m_safe_string_assert(str = ft_recalloc(NULL, 0, 2), str, false);
+	if (NOT was_malloc_unstable)
+	{
+		massert(str[0], (char)'\0');
+		massert(str[1], (char)'\0');
+	}
 }
 
-Test(ft_calloc_size_0)
+Test(ft_recalloc_size_zero)
 {
-	massert(ft_calloc(2, 0), NULL);
+	char	*str;
+
+	m_safe_string_assert(str = ft_calloc(2, 1), str, false);
+	if (NOT was_malloc_unstable)
+	{
+		massert(str[0], (char)'\0');
+		massert(str[1], (char)'\0');
+	}
+	massert(ft_recalloc(str, 0, 0), NULL);
 }
 
-Test(ft_calloc_count_and_size_0)
+Test(ft_recalloc_new_and_size_zero)
 {
-	massert(ft_calloc(0, 0), NULL);
+	char	*str;
+
+	m_safe_string_assert(str = ft_recalloc(NULL, 0, 0), str, false);
+	massert(ft_recalloc(str, 0, 0), NULL);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

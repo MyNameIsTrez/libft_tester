@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_calloc.c                                   :+:    :+:            */
+/*   test_ft_malloc.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 15:23:23 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/22 13:30:47 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/22 13:31:14 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,28 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Test(ft_calloc)
+Test(ft_malloc)
 {
 	char	*str;
 
-	m_safe_string_assert(str = ft_calloc(2, 2), str, true);
+	m_safe_string_assert(str = ft_malloc(4), str, true);
 	if (str != NULL)
 	{
-		massert(str[0], (char)'\0');
-		massert(str[1], (char)'\0');
-		massert(str[2], (char)'\0');
-		massert(str[3], (char)'\0');
+		str[0] = 'a';
+		str[1] = 'b';
+		str[2] = 'c';
+		str[3] = 'd';
+
+		massert(str[0], (char)'a');
+		massert(str[1], (char)'b');
+		massert(str[2], (char)'c');
+		massert(str[3], (char)'d');
 	}
 }
 
-Test(ft_calloc_count_0)
+Test(ft_malloc_count_0)
 {
-	massert(ft_calloc(0, 2), NULL);
-}
-
-Test(ft_calloc_size_0)
-{
-	massert(ft_calloc(2, 0), NULL);
-}
-
-Test(ft_calloc_count_and_size_0)
-{
-	massert(ft_calloc(0, 0), NULL);
+	massert(ft_malloc(0), NULL);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
