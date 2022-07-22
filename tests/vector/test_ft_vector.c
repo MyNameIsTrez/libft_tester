@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/19 16:27:25 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/22 15:53:40 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/22 18:56:07 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,9 @@ Test(ft_vector)
 		massert(ints[1], 2);
 		massert(ints[2], 3);
 	}
-
-	// ft_vector_free(ints);
 }
 
-Test(ft_vector2)
+Test(ft_vector_new_reserved)
 {
 	int	*ints;
 	int	v;
@@ -82,10 +80,11 @@ Test(ft_vector2)
 		massert(ints[2], 3);
 	}
 
-	ft_vector_free(ints);
+	ft_vector_free(&ints);
+	massert((void *)ints, NULL);
 }
 
-Test(ft_vector3)
+Test(ft_vector_2d)
 {
 	int	**ints_2d;
 	int	*row_0;
@@ -188,7 +187,7 @@ Test(ft_vector3)
 		massert(ints_2d[2][2], 9);
 	}
 
-	// ft_vector_free(ints_2d);
+	// ft_vector_free(&ints_2d);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
