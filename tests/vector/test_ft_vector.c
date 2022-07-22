@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/19 16:27:25 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/22 19:41:08 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/22 20:06:11 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,18 @@ Test(ft_vector)
 	{
 		m_safe_assert(int, (int)ft_vector_reserve(&ints, 1), OK, ERROR, false);
 	}
-	if (NOT was_malloc_unstable)
+
+	int i = 0;
+	while (i < 1000)
 	{
-		v = 1;
-		m_safe_assert(int, (int)ft_vector_push(&ints, &v), OK, ERROR, false);
-	}
-	if (NOT was_malloc_unstable)
-	{
-		v = 2;
-		m_safe_assert(int, (int)ft_vector_push(&ints, &v), OK, ERROR, false);
-	}
-	if (NOT was_malloc_unstable)
-	{
-		v = 3;
-		m_safe_assert(int, (int)ft_vector_push(&ints, &v), OK, ERROR, false);
-	}
-	if (NOT was_malloc_unstable)
-	{
-		massert(ints[0], 1);
-		massert(ints[1], 2);
-		massert(ints[2], 3);
+		if (NOT was_malloc_unstable)
+		{
+			v = i;
+			m_safe_assert(int, (int)ft_vector_push(&ints, &v), OK, ERROR, false);
+			if (NOT was_malloc_unstable)
+				massert(ints[i], i);
+		}
+		i++;
 	}
 }
 
