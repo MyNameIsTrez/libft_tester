@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/05 18:37:13 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/21 14:48:53 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/22 11:43:02 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ Test(ft_read_grid_from_file)
 		massert(grid.width, (t_i32)0);
 		massert(grid.height, (t_i32)0);
 		massert(grid.cells[0], (char *)NULL);
-		ft_free(&grid.cells);
 	}
 }
 
@@ -44,7 +43,6 @@ Test(ft_read_grid_from_file2)
 		m_safe_string_assert_free(grid.cells[2], "1000011111001", true);
 		m_safe_string_assert_free(grid.cells[3], "1P0011E000001", true);
 		m_safe_string_assert_free(grid.cells[4], "1111111111111", true);
-		ft_free(&grid.cells);
 	}
 }
 
@@ -73,7 +71,6 @@ Test(ft_read_grid_from_file4)
 		m_safe_string_assert_free(grid.cells[2], "1000011111001", true);
 		m_safe_string_assert_free(grid.cells[3], "1P0011E000001", true);
 		m_safe_string_assert_free(grid.cells[4], "1111111111111", true);
-		ft_free(&grid.cells);
 	}
 }
 

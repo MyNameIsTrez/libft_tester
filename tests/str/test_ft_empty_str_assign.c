@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/25 20:13:08 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/21 14:48:53 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/22 12:04:22 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ Test(ft_empty_str_assign)
 {
 	char	*str;
 
-	str = NULL;
 	m_safe_assert(t_status, ft_empty_str_assign(&str), OK, ERROR, true);
-	ft_free(&str);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
