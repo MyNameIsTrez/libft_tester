@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 15:23:23 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/22 18:27:57 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/22 20:54:04 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Test(ft_malloc)
 {
 	char	*str;
 
-	m_safe_malloc_assert(str = ft_malloc(4), true);
+	m_safe_malloc_assert(str = ft_malloc(4, sizeof(char)), true);
 	if (str != NULL)
 	{
 		str[0] = 'a';
@@ -35,9 +35,19 @@ Test(ft_malloc)
 	}
 }
 
-Test(ft_malloc_count_0)
+Test(ft_malloc_count_count_0)
 {
-	massert(ft_malloc(0), NULL);
+	massert(ft_malloc(0, 1), NULL);
+}
+
+Test(ft_malloc_count_size_0)
+{
+	massert(ft_malloc(1, 0), NULL);
+}
+
+Test(ft_malloc_count_and_size_0)
+{
+	massert(ft_malloc(0, 0), NULL);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

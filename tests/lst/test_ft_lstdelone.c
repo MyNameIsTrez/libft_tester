@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/05 19:00:21 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/21 16:51:22 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/22 20:53:27 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Test(ft_lstdelone)
 	char	*foo;
 	t_list	*lst;
 
-	foo = ft_malloc(4);
+	foo = ft_malloc(4, sizeof(char));
 	if (NOT was_malloc_unstable)
 	{
 		foo[0] = 'b';

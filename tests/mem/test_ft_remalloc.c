@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 15:23:23 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/22 18:29:35 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/22 21:02:39 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Test(ft_remalloc_existing)
 {
 	char	*str;
 
-	m_safe_malloc_assert(str = ft_malloc(2), false);
+	m_safe_malloc_assert(str = ft_malloc(2, sizeof(char)), false);
 	if (NOT was_malloc_unstable)
 	{
 		str[0] = 'a';
@@ -34,7 +34,7 @@ Test(ft_remalloc_existing)
 	// ft_malloc call failed.
 	was_malloc_unstable = false;
 
-	m_safe_malloc_assert(str = ft_remalloc(str, 2, 4), false);
+	m_safe_malloc_assert(str = ft_remalloc(str, 2, 4, sizeof(char)), false);
 	if (NOT was_malloc_unstable)
 	{
 		str[2] = 'c';
@@ -49,7 +49,7 @@ Test(ft_remalloc_new)
 {
 	char	*str;
 
-	m_safe_malloc_assert(str = ft_remalloc(NULL, 0, 2), false);
+	m_safe_malloc_assert(str = ft_remalloc(NULL, 0, 2, sizeof(char)), false);
 	if (NOT was_malloc_unstable)
 	{
 		str[0] = 'a';
@@ -64,7 +64,7 @@ Test(ft_remalloc_size_zero)
 {
 	char	*str;
 
-	m_safe_malloc_assert(str = ft_malloc(2), false);
+	m_safe_malloc_assert(str = ft_malloc(2, sizeof(char)), false);
 	if (NOT was_malloc_unstable)
 	{
 		str[0] = 'a';
@@ -73,15 +73,15 @@ Test(ft_remalloc_size_zero)
 		massert(str[0], (char)'a');
 		massert(str[1], (char)'b');
 	}
-	massert(ft_remalloc(str, 0, 0), NULL);
+	massert(ft_remalloc(str, 0, 0, sizeof(char)), NULL);
 }
 
 Test(ft_remalloc_new_and_size_zero)
 {
 	char	*str;
 
-	m_safe_malloc_assert(str = ft_remalloc(NULL, 0, 0), false);
-	massert(ft_remalloc(str, 0, 0), NULL);
+	m_safe_malloc_assert(str = ft_remalloc(NULL, 0, 0, sizeof(char)), false);
+	massert(ft_remalloc(str, 0, 0, sizeof(char)), NULL);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
