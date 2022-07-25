@@ -6,13 +6,15 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
-#    Updated: 2022/07/22 12:10:49 by sbos          ########   odam.nl          #
+#    Updated: 2022/07/25 14:29:10 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 ################################################################################
 
 export DEBUG=1
+
+################################################################################
 
 LIBFT := libft/libft.a
 
@@ -27,6 +29,8 @@ OBJ_DIR := obj
 
 CFLAGS := -Wall -Wextra -Werror
 
+################################################################################
+
 ifdef DEBUG
 CFLAGS += -g3 -Wconversion
 endif
@@ -39,9 +43,13 @@ ifdef O3
 CFLAGS += -O3
 endif
 
-HEADERS :=\
+################################################################################
+
+INCLUDES_HEADERS :=\
 	$(TESTS_DIR)/libft_tests.h\
-	$(addprefix $(HOME)/Documents/Programming/libctester/, $(shell $(MAKE) -C $(HOME)/Documents/Programming/libctester/ -f headers.mk get_headers))
+	$(shell $(MAKE) -C $(HOME)/Documents/Programming/libctester/ -f headers.mk get_includes_headers)
+
+#$(addprefix $(HOME)/Documents/Programming/libctester/, $(shell $(MAKE) -C $(HOME)/Documents/Programming/libctester/ -f headers.mk get_headers))
 
 ################################################################################
 
@@ -49,7 +57,9 @@ SOURCES := $(shell find $(TESTS_DIR) -name "*.c")
 
 OBJECTS := $(addprefix $(OBJ_DIR)/,$(SOURCES:.c=.o))
 
-INCLUDES := $(sort $(addprefix -I, $(dir $(HEADERS))))
+HEADERS += $(INCLUDES_HEADERS)
+
+INCLUDES := $(sort $(addprefix -I, $(dir $(INCLUDES_HEADERS))))
 
 ################################################################################
 
