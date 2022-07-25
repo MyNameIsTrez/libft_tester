@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/05 19:00:21 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/22 20:53:27 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/25 14:57:09 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-// static void	free_content(void *content)
-void	free_content(void *content)
+static void	free_content(void *content)
 {
 	ft_free(&content);
 }
