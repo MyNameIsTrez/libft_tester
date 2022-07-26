@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/26 12:39:51 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/26 15:23:55 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/26 16:01:21 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,37 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Test(ft_iterator_range_start_0)
+Test(ft_iterator_range_start_0_1)
 {
 	t_iterator	it;
 
-	it = ft_get_range_start_0_iterator(10);
+	it = ft_get_range_start_0_iterator(1);
 	massert((intptr_t)it.current, (intptr_t)0);
 	massert((intptr_t)it.next, (intptr_t)0);
-	massert((intptr_t)it.stop, (intptr_t)10);
+	massert((intptr_t)it.stop, (intptr_t)1);
+	massert(it.step, 1);
+
+	massert(ft_iterate(&it), (t_iterator_status)LOOPED);
+	massert((intptr_t)it.current, (intptr_t)0);
+	massert((intptr_t)it.next, (intptr_t)1);
+	massert((intptr_t)it.stop, (intptr_t)1);
+	massert(it.step, 1);
+
+	massert(ft_iterate(&it), (t_iterator_status)FINISHED);
+	massert((intptr_t)it.current, (intptr_t)0);
+	massert((intptr_t)it.next, (intptr_t)1);
+	massert((intptr_t)it.stop, (intptr_t)1);
+	massert(it.step, 1);
+}
+
+Test(ft_iterator_range_start_0_2)
+{
+	t_iterator	it;
+
+	it = ft_get_range_start_0_iterator(3);
+	massert((intptr_t)it.current, (intptr_t)0);
+	massert((intptr_t)it.next, (intptr_t)0);
+	massert((intptr_t)it.stop, (intptr_t)3);
 	massert(it.step, 1);
 
 	int expected_current = 0;
@@ -31,20 +54,20 @@ Test(ft_iterator_range_start_0)
 	{
 		massert((intptr_t)it.current, (intptr_t)expected_current);
 		massert((intptr_t)it.next, (intptr_t)expected_current + 1);
-		massert((intptr_t)it.stop, (intptr_t)10);
+		massert((intptr_t)it.stop, (intptr_t)3);
 		massert(it.step, 1);
 		expected_current += 1;
 	}
 
-	massert((intptr_t)it.current, (intptr_t)9);
-	massert((intptr_t)it.next, (intptr_t)10);
-	massert((intptr_t)it.stop, (intptr_t)10);
+	massert((intptr_t)it.current, (intptr_t)2);
+	massert((intptr_t)it.next, (intptr_t)3);
+	massert((intptr_t)it.stop, (intptr_t)3);
 	massert(it.step, 1);
 
 	ft_iterate(&it);
-	massert((intptr_t)it.current, (intptr_t)9);
-	massert((intptr_t)it.next, (intptr_t)10);
-	massert((intptr_t)it.stop, (intptr_t)10);
+	massert((intptr_t)it.current, (intptr_t)2);
+	massert((intptr_t)it.next, (intptr_t)3);
+	massert((intptr_t)it.stop, (intptr_t)3);
 	massert(it.step, 1);
 }
 
