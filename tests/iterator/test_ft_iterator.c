@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/26 12:39:51 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/26 14:27:40 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/26 14:51:14 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Test(ft_iterator_0_range)
+Test(ft_iterator_range_start_0)
 {
 	t_iterator	it;
 
-	it = ft_get_0_range_iterator(10);
+	it = ft_get_range_start_0_iterator(10);
 	massert((intptr_t)it.current, (intptr_t)0);
 	massert((intptr_t)it.stop, (intptr_t)10);
 	massert(it.step, 1);
