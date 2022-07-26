@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/19 16:27:25 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/22 20:06:11 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/26 11:15:11 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ Test(ft_vector)
 				massert(ints[i], i);
 		}
 		i++;
+	}
+
+	if (NOT was_malloc_unstable)
+	{
+		massert(ft_vector_get_size(ints), (size_t)1000);
 	}
 }
 
