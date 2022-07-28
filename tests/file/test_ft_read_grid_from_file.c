@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/05 18:37:13 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/22 11:43:02 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/28 14:29:04 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ Test(ft_read_grid_from_file)
 	m_safe_assert(t_status, success, OK, ERROR, false);
 	if (NOT was_malloc_unstable)
 	{
-		massert(grid.width, (t_i32)0);
-		massert(grid.height, (t_i32)0);
+		massert(grid.width, (size_t)0);
+		massert(grid.height, (size_t)0);
 		massert(grid.cells[0], (char *)NULL);
 	}
 }
@@ -36,8 +36,8 @@ Test(ft_read_grid_from_file2)
 	m_safe_assert(t_status, success, OK, ERROR, false);
 	if (NOT was_malloc_unstable)
 	{
-		massert(grid.width, (t_i32)13);
-		massert(grid.height, (t_i32)5);
+		massert(grid.width, (size_t)13);
+		massert(grid.height, (size_t)5);
 		m_safe_string_assert_free(grid.cells[0], "1111111111111", true);
 		m_safe_string_assert_free(grid.cells[1], "10010000000C1", true);
 		m_safe_string_assert_free(grid.cells[2], "1000011111001", true);
@@ -64,8 +64,8 @@ Test(ft_read_grid_from_file4)
 	m_safe_assert(t_status, success, OK, ERROR, false);
 	if (NOT was_malloc_unstable)
 	{
-		massert(grid.width, (t_i32)13);
-		massert(grid.height, (t_i32)5);
+		massert(grid.width, (size_t)13);
+		massert(grid.height, (size_t)5);
 		m_safe_string_assert_free(grid.cells[0], "1111111111111", true);
 		m_safe_string_assert_free(grid.cells[1], "10010000000C1", true);
 		m_safe_string_assert_free(grid.cells[2], "1000011111001", true);
