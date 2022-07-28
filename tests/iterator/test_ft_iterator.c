@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/26 12:39:51 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/28 12:58:52 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/28 14:38:34 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,6 +268,40 @@ Test(ft_array_iterator)
 	massert(it.next, (intptr_t)(((uintptr_t)ints) + 2 * size));
 	massert(it.stop, (intptr_t)(((uintptr_t)ints) + count * size));
 	massert(it.step, (intptr_t)size);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+Test(ft_count_iterator)
+{
+	t_iterator	it;
+
+	it = ft_get_count_iterator(3);
+	massert(it.current, (intptr_t)0);
+	massert(it.next, (intptr_t)0);
+	massert(it.stop, (intptr_t)3);
+	massert(it.step, (intptr_t)1);
+
+	int expected_current = 0;
+	while (ft_iterate(&it) != FINISHED)
+	{
+		massert(it.current, (intptr_t)expected_current);
+		massert(it.next, (intptr_t)expected_current + 1);
+		massert(it.stop, (intptr_t)3);
+		massert(it.step, (intptr_t)1);
+		expected_current += 1;
+	}
+
+	massert(it.current, (intptr_t)2);
+	massert(it.next, (intptr_t)3);
+	massert(it.stop, (intptr_t)3);
+	massert(it.step, (intptr_t)1);
+
+	ft_iterate(&it);
+	massert(it.current, (intptr_t)2);
+	massert(it.next, (intptr_t)3);
+	massert(it.stop, (intptr_t)3);
+	massert(it.step, (intptr_t)1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
