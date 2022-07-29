@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_vector.c                                   :+:    :+:            */
+/*   test_ft_vector_new_reserved.c                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/19 16:27:25 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/29 20:25:24 by sbos          ########   odam.nl         */
+/*   Created: 2022/07/29 20:24:37 by sbos          #+#    #+#                 */
+/*   Updated: 2022/07/29 20:24:47 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,38 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Test(ft_vector)
+Test(ft_vector_new_reserved)
 {
 	int	*ints;
 	int	v;
 
-	m_safe_assert(void *, ints = ft_vector_new(sizeof(int)), ints, NULL, false);
+	m_safe_assert(void *, ints = ft_vector_new_reserved(sizeof(int), 1), ints, NULL, false);
 
 	if (NOT was_malloc_unstable)
 	{
-		m_safe_assert(int, (int)ft_vector_reserve(&ints, 1), OK, ERROR, false);
+		v = 1;
+		m_safe_assert(int, (int)ft_vector_push(&ints, &v), OK, ERROR, false);
 	}
-
-	int i = 0;
-	while (i < 1000)
+	if (NOT was_malloc_unstable)
 	{
-		if (NOT was_malloc_unstable)
-		{
-			v = i;
-			m_safe_assert(int, (int)ft_vector_push(&ints, &v), OK, ERROR, false);
-			if (NOT was_malloc_unstable)
-				massert(ints[i], i);
-		}
-		i++;
+		v = 2;
+		m_safe_assert(int, (int)ft_vector_push(&ints, &v), OK, ERROR, false);
+	}
+	if (NOT was_malloc_unstable)
+	{
+		v = 3;
+		m_safe_assert(int, (int)ft_vector_push(&ints, &v), OK, ERROR, false);
 	}
 
 	if (NOT was_malloc_unstable)
 	{
-		massert(ft_vector_get_size(ints), (size_t)1000);
+		massert(ints[0], 1);
+		massert(ints[1], 2);
+		massert(ints[2], 3);
 	}
+
+	ft_vector_free(&ints);
+	massert((void *)ints, NULL);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
