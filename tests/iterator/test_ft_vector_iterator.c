@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/29 13:07:41 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/29 20:42:54 by sbos          ########   odam.nl         */
+/*   Updated: 2022/08/08 12:50:21 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ Test(ft_vector_iterator)
 		massert(it.step, (intptr_t)size);
 
 		massert(ft_iterate(&it), (t_iterator_status)FINISHED);
-		massert(it.current, (intptr_t)(((uintptr_t)ints) + 1 * size));
+		massert(it.current, (intptr_t)ints);
 		massert(it.next, (intptr_t)(((uintptr_t)ints) + 2 * size));
 		massert(it.stop, (intptr_t)(((uintptr_t)ints) + count * size));
 		massert(it.step, (intptr_t)size);

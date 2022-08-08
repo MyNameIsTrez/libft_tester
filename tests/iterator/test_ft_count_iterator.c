@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/29 13:08:11 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/29 13:18:19 by sbos          ########   odam.nl         */
+/*   Updated: 2022/08/08 12:54:49 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,13 @@ Test(ft_count_iterator)
 		expected_current += 1;
 	}
 
-	massert(it.current, (intptr_t)2);
+	massert(it.current, (intptr_t)0);
 	massert(it.next, (intptr_t)3);
 	massert(it.stop, (intptr_t)3);
 	massert(it.step, (intptr_t)1);
 
 	ft_iterate(&it);
-	massert(it.current, (intptr_t)2);
+	massert(it.current, (intptr_t)0);
 	massert(it.next, (intptr_t)3);
 	massert(it.stop, (intptr_t)3);
 	massert(it.step, (intptr_t)1);
