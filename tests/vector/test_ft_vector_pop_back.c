@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_vector_swap_remove.c                       :+:    :+:            */
+/*   test_ft_vector_pop_back.c                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/19 16:27:25 by sbos          #+#    #+#                 */
-/*   Updated: 2022/08/11 13:25:50 by sbos          ########   odam.nl         */
+/*   Updated: 2022/08/11 13:26:02 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Test(ft_vector_swap_remove)
+Test(ft_vector_pop_back)
 {
 	int	*ints;
 	int	v;
@@ -37,9 +37,9 @@ Test(ft_vector_swap_remove)
 	}
 
 	if (NOT was_malloc_unstable)
-		ft_vector_swap_remove(&ints, 0);
+		ft_vector_pop_back(&ints);
 	if (NOT was_malloc_unstable)
-		ft_vector_swap_remove(&ints, 0);
+		ft_vector_pop_back(&ints);
 
 	if (NOT was_malloc_unstable)
 		massert(ft_vector_get_size(ints), (size_t)8);
