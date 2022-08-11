@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 15:23:23 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/22 21:02:05 by sbos          ########   odam.nl         */
+/*   Updated: 2022/08/11 16:01:55 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,25 @@ Test(ft_recalloc_existing)
 	// ft_calloc call failed.
 	was_malloc_unstable = false;
 
-	m_safe_string_assert(str = ft_recalloc(str, 2, 4, sizeof(char)), str, false);
+	char	*str_new;
+
+	m_safe_string_assert(str_new = ft_recalloc(&str, 2, 4, sizeof(char)), str_new, false);
 	if (NOT was_malloc_unstable)
 	{
-		massert(str[2], (char)'\0');
-		massert(str[3], (char)'\0');
+		massert(str_new[2], (char)'\0');
+		massert(str_new[3], (char)'\0');
+
+		massert(str, (char *)NULL);
 	}
 }
 
-Test(ft_recalloc_new)
+Test(ft_recalloc_no_new)
 {
 	char	*str;
 
 	m_safe_malloc_assert(str = ft_recalloc(NULL, 0, 2, sizeof(char)), false);
 	if (NOT was_malloc_unstable)
-	{
-		massert(str[0], (char)'\0');
-		massert(str[1], (char)'\0');
-	}
+		massert(str, (char *)NULL);
 }
 
 Test(ft_recalloc_size_zero)
@@ -61,7 +62,7 @@ Test(ft_recalloc_size_zero)
 		massert(str[0], (char)'\0');
 		massert(str[1], (char)'\0');
 	}
-	massert(ft_recalloc(str, 0, 0, sizeof(char)), NULL);
+	massert(ft_recalloc(&str, 0, 0, sizeof(char)), NULL);
 }
 
 Test(ft_recalloc_new_and_size_zero)
@@ -69,7 +70,7 @@ Test(ft_recalloc_new_and_size_zero)
 	char	*str;
 
 	m_safe_malloc_assert(str = ft_recalloc(NULL, 0, 0, sizeof(char)), false);
-	massert(ft_recalloc(str, 0, 0, sizeof(char)), NULL);
+	massert(ft_recalloc(&str, 0, 0, sizeof(char)), NULL);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
