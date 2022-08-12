@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/05 18:37:13 by sbos          #+#    #+#                 */
-/*   Updated: 2022/08/11 18:06:14 by sbos          ########   odam.nl         */
+/*   Updated: 2022/08/11 18:12:44 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 Test(ft_read_grid_from_file)
 {
-	t_u8_grid	grid;
+	t_char_grid	grid;
 	t_status	success;
 
 	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/empty");
@@ -29,7 +29,7 @@ Test(ft_read_grid_from_file)
 
 Test(ft_read_grid_from_file2)
 {
-	t_u8_grid		grid;
+	t_char_grid		grid;
 	t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/no_trailing_newline");
 	m_safe_assert(t_status, success, OK, ERROR, false);
 	if (NOT was_malloc_unstable)
@@ -46,7 +46,7 @@ Test(ft_read_grid_from_file2)
 
 Test(ft_read_grid_from_file3)
 {
-	t_u8_grid		grid;
+	t_char_grid		grid;
 	t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/not_rectangular");
 	massert_success(success, ERROR);
 	if (NOT was_malloc_unstable)
@@ -57,7 +57,7 @@ Test(ft_read_grid_from_file3)
 
 Test(ft_read_grid_from_file4)
 {
-	t_u8_grid		grid;
+	t_char_grid		grid;
 	t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/trailing_newline");
 	m_safe_assert(t_status, success, OK, ERROR, false);
 	if (NOT was_malloc_unstable)
