@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 15:23:23 by sbos          #+#    #+#                 */
-/*   Updated: 2022/08/11 16:02:15 by sbos          ########   odam.nl         */
+/*   Updated: 2022/08/15 15:23:16 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ Test(ft_remalloc_existing)
 	if (NOT was_malloc_unstable)
 	{
 		str[0] = 'a';
-		str[1] = 'b';
+		str[1] = '\0';
 
 		massert(str[0], (char)'a');
-		massert(str[1], (char)'b');
+		massert(str[1], (char)'\0');
 	}
 
 	// Since ft_remalloc() mallocs a new string, it is fine if the previous
@@ -66,10 +66,10 @@ Test(ft_remalloc_size_zero)
 	if (NOT was_malloc_unstable)
 	{
 		str[0] = 'a';
-		str[1] = 'b';
+		str[1] = '\0';
 
 		massert(str[0], (char)'a');
-		massert(str[1], (char)'b');
+		massert(str[1], (char)'\0');
 	}
 	massert(ft_remalloc(&str, 0, 0, sizeof(char)), NULL);
 }

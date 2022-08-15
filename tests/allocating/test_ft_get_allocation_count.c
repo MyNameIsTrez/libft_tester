@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_malloc.c                                   :+:    :+:            */
+/*   test_ft_get_allocation_count.c                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/02/16 15:23:23 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/22 20:54:04 by sbos          ########   odam.nl         */
+/*   Created: 2022/08/15 14:42:35 by sbos          #+#    #+#                 */
+/*   Updated: 2022/08/15 15:24:28 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,38 +16,21 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Test(ft_malloc)
+Test(ft_get_allocation_count)
 {
+	massert(ft_get_allocation_count(), (size_t)0);
+
 	char	*str;
 
 	m_safe_malloc_assert(str = ft_malloc(4, sizeof(char)), true);
 	if (str != NULL)
 	{
-		str[0] = 'a';
-		str[1] = 'b';
-		str[2] = 'c';
-		str[3] = 'd';
+		massert(ft_get_allocation_count(), (size_t)1);
 
-		massert(str[0], (char)'a');
-		massert(str[1], (char)'b');
-		massert(str[2], (char)'c');
-		massert(str[3], (char)'d');
+		ft_free(&str);
+
+		massert(ft_get_allocation_count(), (size_t)0);
 	}
-}
-
-Test(ft_malloc_count_count_0)
-{
-	massert(ft_malloc(0, 1), NULL);
-}
-
-Test(ft_malloc_count_size_0)
-{
-	massert(ft_malloc(1, 0), NULL);
-}
-
-Test(ft_malloc_count_and_size_0)
-{
-	massert(ft_malloc(0, 0), NULL);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

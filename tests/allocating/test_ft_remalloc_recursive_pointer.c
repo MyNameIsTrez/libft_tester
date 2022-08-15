@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/19 16:27:25 by sbos          #+#    #+#                 */
-/*   Updated: 2022/08/12 16:28:28 by sbos          ########   odam.nl         */
+/*   Updated: 2022/08/12 17:16:07 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,8 @@ Test(ft_remalloc_recursive_pointer)
 		foo->x = 4;
 		foo->address = foo;
 
-		if (malloc_call_count_to_fail == 171)
-			massert(foo->address, (void *)foo);
-
 		t_foo	*new_foo;
 		m_safe_malloc_assert(new_foo = ft_remalloc(&foo->address, 1, 2, sizeof(t_foo)), false);
-		if (malloc_call_count_to_fail == 171)
-			massert(foo->address, (void *)foo);
 
 		if (NOT was_malloc_unstable)
 		{
