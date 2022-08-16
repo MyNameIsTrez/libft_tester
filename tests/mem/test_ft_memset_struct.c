@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_memset.c                                   :+:    :+:            */
+/*   test_ft_memset_struct.c                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 16:20:39 by sbos          #+#    #+#                 */
-/*   Updated: 2022/08/16 16:52:54 by sbos          ########   odam.nl         */
+/*   Updated: 2022/08/16 17:12:44 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,21 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Test(ft_memset)
+Test(ft_memset_struct)
 {
-	char	str[] = "foo";
-	void	*ft_memset_result;
+	t_u8	pixels[6];
+	void	*ft_memset_struct_result;
 
-	ft_memset_result = ft_memset(str, 'c', 2);
+	ft_memset_struct_result = ft_memset_struct(pixels, (t_u8 []){255, 0, 100}, 3 * sizeof(t_u8), 6);
 
-	massert(str[0], (char)'c');
-	massert(str[1], (char)'c');
-	massert(str[2], (char)'o');
-	massert(str[3], (char)'\0');
+	massert(pixels[0], (t_u8)255);
+	massert(pixels[1], (t_u8)0);
+	massert(pixels[2], (t_u8)100);
+	massert(pixels[3], (t_u8)255);
+	massert(pixels[4], (t_u8)0);
+	massert(pixels[5], (t_u8)100);
 
-	massert(ft_memset_result, memset(str, 'c', 2));
+	massert(ft_memset_struct_result, memset(pixels, 'c', 2));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
