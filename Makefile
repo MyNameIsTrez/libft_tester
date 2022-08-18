@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
-#    Updated: 2022/08/18 13:43:19 by sbos          ########   odam.nl          #
+#    Updated: 2022/08/18 14:59:17 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,12 +27,12 @@ CC := cc
 override TESTS_DIR := tests
 OBJ_DIR := obj
 
-CFLAGS := -Wall -Wextra -Werror -pedantic-errors -Werror-pointer-arith
+CFLAGS := -Wall -Wextra -Werror -Wconversion -Wpedantic -Werror-pointer-arith
 
 ################################################################################
 
 ifdef DEBUG
-CFLAGS += -g3 -Wconversion
+CFLAGS += -g3
 endif
 
 ifdef SAN
