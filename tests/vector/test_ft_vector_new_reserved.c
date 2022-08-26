@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/29 20:24:37 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/29 20:24:47 by sbos          ########   odam.nl         */
+/*   Updated: 2022/08/26 17:07:41 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ Test(ft_vector_new_reserved)
 
 	ft_vector_free(&ints);
 	massert((void *)ints, NULL);
+}
+
+Test(ft_vector_new_reserved_empty)
+{
+	massert(ft_vector_new_reserved(sizeof(int), 0), NULL);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
