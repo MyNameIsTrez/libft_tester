@@ -27,7 +27,7 @@ CC := cc
 override TESTS_DIR := tests
 OBJ_DIR := obj
 
-CFLAGS := -Wall -Wextra -Werror -Wconversion -Wpedantic -Werror-pointer-arith
+CFLAGS := -Wall -Wextra -Werror -Wconversion -Wpedantic -Wfatal-errors
 
 ################################################################################
 
