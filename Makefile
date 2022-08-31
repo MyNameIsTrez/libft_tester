@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
-#    Updated: 2022/08/31 14:44:16 by sbos          ########   odam.nl          #
+#    Updated: 2022/08/31 16:27:46 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,12 +76,17 @@ endif
 all: $(PRE_RULES) $(LIBFT) $(OBJECTS)
 	@echo "$(MAKE_DATA)" > $(DATA_FILE)
 
+################################################################################
+
+$(LIBFT):
+	git submodule update --init --recursive
+	@$(MAKE) -C $(dir $(LIBFT))
+
+################################################################################
+
 $(OBJ_DIR)/%.o: %.c $(HEADERS)
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
-$(LIBFT):
-	@$(MAKE) -C $(dir $(LIBFT))
 
 ################################################################################
 
@@ -91,6 +96,7 @@ clean:
 
 .PHONY: fclean
 fclean: clean
+	git submodule update --init --recursive
 	@$(MAKE) -C $(dir $(LIBFT)) fclean
 	@$(MAKE) -C $(LIBCTESTER_PATH) fclean
 
