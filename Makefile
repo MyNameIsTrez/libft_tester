@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/22 18:42:17 by sbos          #+#    #+#                  #
-#    Updated: 2022/08/18 14:59:17 by sbos          ########   odam.nl          #
+#    Updated: 2022/08/31 14:44:16 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ endif
 
 ################################################################################
 
+.PHONY: all
 all: $(PRE_RULES) $(LIBFT) $(OBJECTS)
 	@echo "$(MAKE_DATA)" > $(DATA_FILE)
 
@@ -82,26 +83,24 @@ $(OBJ_DIR)/%.o: %.c $(HEADERS)
 $(LIBFT):
 	@$(MAKE) -C $(dir $(LIBFT))
 
-.PHONY: all
-
 ################################################################################
 
+.PHONY: clean
 clean:
 	rm -rf $(OBJ_DIR)
 
+.PHONY: fclean
 fclean: clean
 	@$(MAKE) -C $(dir $(LIBFT)) fclean
 	@$(MAKE) -C $(LIBCTESTER_PATH) fclean
 
+.PHONY: re
 re: fclean all
-
-.PHONY: clean fclean re
 
 ################################################################################
 
+.PHONY: get_libs
 get_libs:
 	@echo $(LIBS)
-
-.PHONY: get_libs
 
 ################################################################################
