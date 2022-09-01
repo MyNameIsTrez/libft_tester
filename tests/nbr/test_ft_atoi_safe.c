@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/16 14:30:21 by sbos          #+#    #+#                 */
-/*   Updated: 2022/06/29 12:31:22 by sbos          ########   odam.nl         */
+/*   Updated: 2022/09/01 14:40:48 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,29 @@ Test(ft_atoi_safe)
 	{
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("-12345", &nbr), OK);
+			massert(ft_atoi_safe("-12345", &nbr), true);
 			massert(nbr, -12345);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("+12345", &nbr), OK);
+			massert(ft_atoi_safe("+12345", &nbr), true);
 			massert(nbr, 12345);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe(".12345", &nbr), ERROR);
+			massert(ft_atoi_safe(".12345", &nbr), false);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("a12345", &nbr), ERROR);
+			massert(ft_atoi_safe("a12345", &nbr), false);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe(" 12345 ", &nbr), OK);
+			massert(ft_atoi_safe(" 12345 ", &nbr), true);
 			massert(nbr, 12345);
 		}
 	}
@@ -51,22 +51,22 @@ Test(ft_atoi_safe)
 	{
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("- 12345", &nbr), ERROR);
+			massert(ft_atoi_safe("- 12345", &nbr), false);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("+ 12345", &nbr), ERROR);
+			massert(ft_atoi_safe("+ 12345", &nbr), false);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe(". 12345", &nbr), ERROR);
+			massert(ft_atoi_safe(". 12345", &nbr), false);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("a 12345", &nbr), ERROR);
+			massert(ft_atoi_safe("a 12345", &nbr), false);
 			massert(nbr, 420);
 		}
 	}
@@ -74,25 +74,25 @@ Test(ft_atoi_safe)
 	{
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("123-45", &nbr), OK);
+			massert(ft_atoi_safe("123-45", &nbr), true);
 			massert(nbr, 123);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("123+45", &nbr), OK);
+			massert(ft_atoi_safe("123+45", &nbr), true);
 			massert(nbr, 123);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("123.45", &nbr), OK);
+			massert(ft_atoi_safe("123.45", &nbr), true);
 			massert(nbr, 123);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("123a45", &nbr), OK);
+			massert(ft_atoi_safe("123a45", &nbr), true);
 			massert(nbr, 123);
 		}
 	}
@@ -100,25 +100,25 @@ Test(ft_atoi_safe)
 	{
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("12345-", &nbr), OK);
+			massert(ft_atoi_safe("12345-", &nbr), true);
 			massert(nbr, 12345);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("12345+", &nbr), OK);
+			massert(ft_atoi_safe("12345+", &nbr), true);
 			massert(nbr, 12345);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("12345.", &nbr), OK);
+			massert(ft_atoi_safe("12345.", &nbr), true);
 			massert(nbr, 12345);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("12345a", &nbr), OK);
+			massert(ft_atoi_safe("12345a", &nbr), true);
 			massert(nbr, 12345);
 		}
 	}
@@ -126,24 +126,24 @@ Test(ft_atoi_safe)
 	{
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("2147483647", &nbr), OK);
+			massert(ft_atoi_safe("2147483647", &nbr), true);
 			massert(nbr, 2147483647);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("2147483648", &nbr), ERROR);
+			massert(ft_atoi_safe("2147483648", &nbr), false);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("-2147483648", &nbr), OK);
+			massert(ft_atoi_safe("-2147483648", &nbr), true);
 			massert(nbr, (int)-2147483648);
 		}
 
 		{
 			int	nbr = 420;
-			massert_success(ft_atoi_safe("-2147483649", &nbr), ERROR);
+			massert(ft_atoi_safe("-2147483649", &nbr), false);
 		}
 	}
 }
