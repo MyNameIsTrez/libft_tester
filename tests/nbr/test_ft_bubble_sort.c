@@ -36,6 +36,16 @@ Test(ft_bubble_sort)
 	massert(arr2[5], 6);
 	massert(arr2[6], 7);
 	massert(arr2[7], 8);
+
+	t_i32	arr3[] = {2, 1, 3, 6, 5, 8};
+
+	ft_bubble_sort(arr3, sizeof(arr3) / sizeof(*arr3));
+	massert(arr3[0], 1);
+	massert(arr3[1], 2);
+	massert(arr3[2], 3);
+	massert(arr3[3], 5);
+	massert(arr3[4], 6);
+	massert(arr3[5], 8);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
