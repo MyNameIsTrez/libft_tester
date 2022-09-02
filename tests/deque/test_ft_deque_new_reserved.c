@@ -18,51 +18,38 @@
 
 Test(ft_deque)
 {
-	// t_deque	*ints;
-	// int	v;
+	t_deque	*ints;
+	int	v;
 
-	// m_safe_assert(t_deque *, ints = ft_deque_new_reserved(sizeof(int), 2), ints, NULL, false);
+	m_safe_assert(void *, ints = ft_deque_new_reserved(sizeof(int), 2), ints, NULL, false);
 
-	// // int i = 0;
-	// // while (i < 1000)
-	// // {
-	// // 	if (NOT was_malloc_unstable)
-	// // 	{
-	// // 		v = i;
-	// // 		m_safe_assert(t_status, ft_deque_push_back(&ints, &v), OK, ERROR, false);
-	// // 		if (NOT was_malloc_unstable)
-	// // 			massert(ints[i], i);
-	// // 	}
-	// // 	i++;
-	// // }
-
-	// if (NOT was_malloc_unstable)
-	// {
-	// 	v = 1;
-	// 	m_safe_assert(t_status, ft_deque_push_back(&ints, &v), OK, ERROR, false);
-	// }
-	// if (NOT was_malloc_unstable)
-	// {
-	// 	v = 2;
-	// 	m_safe_assert(t_status, ft_deque_push_back(&ints, &v), OK, ERROR, false);
-	// }
+	if (NOT was_malloc_unstable)
+	{
+		v = 1;
+		m_safe_assert(t_status, ft_deque_push_back(ints, &v), OK, ERROR, false);
+	}
+	if (NOT was_malloc_unstable)
+	{
+		v = 2;
+		m_safe_assert(t_status, ft_deque_push_back(ints, &v), OK, ERROR, false);
+	}
 	// if (NOT was_malloc_unstable)
 	// {
 	// 	v = 3;
-	// 	m_safe_assert(t_status, ft_deque_push_back(&ints, &v), OK, ERROR, false);
+	// 	m_safe_assert(t_status, ft_deque_push_back(ints, &v), OK, ERROR, false);
 	// }
 
-	// if (NOT was_malloc_unstable)
-	// {
-	// 	massert(ints[0], 1);
-	// 	massert(ints[1], 2);
-	// 	massert(ints[2], 3);
-	// }
+	if (NOT was_malloc_unstable)
+	{
+		massert(*(int *)ft_deque_at(ints, 0), 1);
+		massert(*(int *)ft_deque_at(ints, 1), 2);
+		// massert(*(int *)ft_deque_at(ints, 2), 3);
+	}
 
-	// if (NOT was_malloc_unstable)
-	// {
-	// 	massert(ints->size, (size_t)1000);
-	// }
+	if (NOT was_malloc_unstable)
+	{
+		massert(ints->size, (size_t)2);
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
