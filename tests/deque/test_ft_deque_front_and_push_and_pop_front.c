@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_deque_back_and_pop_back.c                  :+:    :+:            */
+/*   test_ft_deque_front_and_push_and_pop_front.        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
@@ -16,7 +16,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Test(ft_deque_back_and_pop_back)
+Test(ft_deque_front_and_push_and_pop_front)
 {
 	t_deque	*ints;
 	int	v;
@@ -26,22 +26,22 @@ Test(ft_deque_back_and_pop_back)
 	if (NOT was_malloc_unstable)
 	{
 		v = 1;
-		m_safe_assert(t_status, ft_deque_push_back(ints, &v), OK, ERROR, false);
+		m_safe_assert(t_status, ft_deque_push_front(ints, &v), OK, ERROR, false);
 	}
 	if (NOT was_malloc_unstable)
 	{
 		v = 2;
-		m_safe_assert(t_status, ft_deque_push_back(ints, &v), OK, ERROR, false);
+		m_safe_assert(t_status, ft_deque_push_front(ints, &v), OK, ERROR, false);
 	}
 
 	if (NOT was_malloc_unstable)
 	{
-		massert(*(int *)ft_deque_back(ints), 2);
-		ft_deque_pop_back(ints);
+		massert(*(int *)ft_deque_front(ints), 2);
+		ft_deque_pop_front(ints);
 		massert(ft_deque_size(ints), (size_t)1);
 
-		massert(*(int *)ft_deque_back(ints), 1);
-		ft_deque_pop_back(ints);
+		massert(*(int *)ft_deque_front(ints), 1);
+		ft_deque_pop_front(ints);
 		massert(ft_deque_size(ints), (size_t)0);
 	}
 }
