@@ -48,7 +48,7 @@ Test(ft_deque)
 
 	if (NOT was_malloc_unstable)
 	{
-		massert(ints->size, (size_t)2);
+		massert(ft_deque_size(ints), (size_t)2);
 	}
 }
 
