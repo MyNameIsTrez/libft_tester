@@ -38,7 +38,7 @@ Test(ft_free_allocations_double_around)
 
 	if (NOT was_malloc_unstable)
 	{
-		m_safe_assert(int, (int)ft_vector_reserve(&ints, 1), OK, ERROR, false);
+		m_safe_assert(t_status, ft_vector_reserve(&ints, 1), OK, ERROR, false);
 	}
 
 	int i = 0;
@@ -47,7 +47,7 @@ Test(ft_free_allocations_double_around)
 		if (NOT was_malloc_unstable)
 		{
 			v = i;
-			m_safe_assert(int, (int)ft_vector_push(&ints, &v), OK, ERROR, false);
+			m_safe_assert(t_status, ft_vector_push(&ints, &v), OK, ERROR, false);
 			if (NOT was_malloc_unstable)
 				massert(ints[i], i);
 		}

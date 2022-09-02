@@ -40,12 +40,12 @@ Test(ft_memset_struct_of_ints)
 
 	ft_memset_struct_result = ft_memset_struct(pixels, (int []){420, 1337, 21}, 3 * sizeof(int), 6 * sizeof(int));
 
-	massert(pixels[0], (int)420);
-	massert(pixels[1], (int)1337);
-	massert(pixels[2], (int)21);
-	massert(pixels[3], (int)420);
-	massert(pixels[4], (int)1337);
-	massert(pixels[5], (int)21);
+	massert(pixels[0], 420);
+	massert(pixels[1], 1337);
+	massert(pixels[2], 21);
+	massert(pixels[3], 420);
+	massert(pixels[4], 1337);
+	massert(pixels[5], 21);
 
 	massert(ft_memset_struct_result, memset(pixels, 'c', 2));
 }

@@ -31,7 +31,7 @@ Test(ft_vector_2d)
 	}
 	if (NOT was_malloc_unstable)
 	{
-		m_safe_assert(int, (int)ft_vector_push(&ints_2d, &row_0), OK, ERROR, false);
+		m_safe_assert(t_status, ft_vector_push(&ints_2d, &row_0), OK, ERROR, false);
 	}
 
 	// WARNING:
@@ -41,17 +41,17 @@ Test(ft_vector_2d)
 	if (NOT was_malloc_unstable)
 	{
 		v = 1;
-		m_safe_assert(int, (int)ft_vector_push(&ints_2d[0], &v), OK, ERROR, false);
+		m_safe_assert(t_status, ft_vector_push(&ints_2d[0], &v), OK, ERROR, false);
 	}
 	if (NOT was_malloc_unstable)
 	{
 		v = 2;
-		m_safe_assert(int, (int)ft_vector_push(&ints_2d[0], &v), OK, ERROR, false);
+		m_safe_assert(t_status, ft_vector_push(&ints_2d[0], &v), OK, ERROR, false);
 	}
 	if (NOT was_malloc_unstable)
 	{
 		v = 3;
-		m_safe_assert(int, (int)ft_vector_push(&ints_2d[0], &v), OK, ERROR, false);
+		m_safe_assert(t_status, ft_vector_push(&ints_2d[0], &v), OK, ERROR, false);
 	}
 
 	if (NOT was_malloc_unstable)
@@ -68,21 +68,21 @@ Test(ft_vector_2d)
 	if (NOT was_malloc_unstable)
 	{
 		v = 4;
-		m_safe_assert(int, (int)ft_vector_push(&row_1, &v), OK, ERROR, false);
+		m_safe_assert(t_status, ft_vector_push(&row_1, &v), OK, ERROR, false);
 	}
 	if (NOT was_malloc_unstable)
 	{
 		v = 5;
-		m_safe_assert(int, (int)ft_vector_push(&row_1, &v), OK, ERROR, false);
+		m_safe_assert(t_status, ft_vector_push(&row_1, &v), OK, ERROR, false);
 	}
 	if (NOT was_malloc_unstable)
 	{
 		v = 6;
-		m_safe_assert(int, (int)ft_vector_push(&row_1, &v), OK, ERROR, false);
+		m_safe_assert(t_status, ft_vector_push(&row_1, &v), OK, ERROR, false);
 	}
 	if (NOT was_malloc_unstable)
 	{
-		m_safe_assert(int, (int)ft_vector_push(&ints_2d, &row_1), OK, ERROR, false);
+		m_safe_assert(t_status, ft_vector_push(&ints_2d, &row_1), OK, ERROR, false);
 	}
 
 	if (NOT was_malloc_unstable)

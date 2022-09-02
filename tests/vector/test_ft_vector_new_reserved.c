@@ -29,17 +29,17 @@ Test(ft_vector_new_reserved)
 	if (NOT was_malloc_unstable)
 	{
 		v = 1;
-		m_safe_assert(int, (int)ft_vector_push(&ints, &v), OK, ERROR, false);
+		m_safe_assert(t_status, ft_vector_push(&ints, &v), OK, ERROR, false);
 	}
 	if (NOT was_malloc_unstable)
 	{
 		v = 2;
-		m_safe_assert(int, (int)ft_vector_push(&ints, &v), OK, ERROR, false);
+		m_safe_assert(t_status, ft_vector_push(&ints, &v), OK, ERROR, false);
 	}
 	if (NOT was_malloc_unstable)
 	{
 		v = 3;
-		m_safe_assert(int, (int)ft_vector_push(&ints, &v), OK, ERROR, false);
+		m_safe_assert(t_status, ft_vector_push(&ints, &v), OK, ERROR, false);
 	}
 
 	if (NOT was_malloc_unstable)

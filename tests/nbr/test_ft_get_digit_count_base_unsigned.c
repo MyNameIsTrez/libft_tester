@@ -18,7 +18,7 @@
 
 Test(ft_get_digit_count_base_unsigned)
 {
-	massert((int)ft_get_digit_count_base_unsigned(42, 10), 2);
+	massert(ft_get_digit_count_base_unsigned(42, 10), (size_t)2);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

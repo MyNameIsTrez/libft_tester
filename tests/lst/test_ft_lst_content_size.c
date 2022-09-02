@@ -26,12 +26,12 @@ Test(ft_lst_content_size)
 
 	lst = NULL;
 
-	massert((int)ft_lst_content_size(lst, (t_size_fn) &(ft_strlen)), 0);
+	massert(ft_lst_content_size(lst, (t_size_fn) &(ft_strlen)), (size_t)0);
 
 	m_safe_assert(void *, ft_lst_new_back(&lst, "foo"), ft_lstlast(lst), NULL, false);
 	if (NOT was_malloc_unstable)
 	{
-		massert((int)ft_lst_content_size(lst, (t_size_fn) &(ft_strlen)), 3);
+		massert(ft_lst_content_size(lst, (t_size_fn) &(ft_strlen)), (size_t)3);
 	}
 
 	if (NOT was_malloc_unstable)
@@ -40,7 +40,7 @@ Test(ft_lst_content_size)
 	}
 	if (NOT was_malloc_unstable)
 	{
-		massert((int)ft_lst_content_size(lst, (t_size_fn) &(ft_strlen)), 6);
+		massert(ft_lst_content_size(lst, (t_size_fn) &(ft_strlen)), (size_t)6);
 	}
 
 	if (NOT was_malloc_unstable)
@@ -49,7 +49,7 @@ Test(ft_lst_content_size)
 	}
 	if (NOT was_malloc_unstable)
 	{
-		massert((int)ft_lst_content_size(lst, (t_size_fn) &(ft_strlen)), 9);
+		massert(ft_lst_content_size(lst, (t_size_fn) &(ft_strlen)), (size_t)9);
 	}
 
 	ft_lstclear(&lst, NULL);
