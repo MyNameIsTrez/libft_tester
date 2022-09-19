@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_deque_front_and_push_and_pop_front.        :+:    :+:            */
+/*   test_ft_deque_front.c                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
@@ -16,7 +16,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Test(ft_deque_front_and_push_and_pop_front)
+Test(ft_deque_front)
 {
 	t_deque	*ints;
 	int	v;
