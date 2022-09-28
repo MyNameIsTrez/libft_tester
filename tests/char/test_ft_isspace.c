@@ -25,6 +25,7 @@ Test(ft_isspace)
 	massert(ft_isspace('\f'), (bool)true);
 	massert(ft_isspace('\r'), (bool)true);
 	massert(ft_isspace('c'), (bool)false);
+	massert(ft_isspace('\0'), (bool)false);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

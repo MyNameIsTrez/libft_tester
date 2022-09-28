@@ -74,52 +74,44 @@ Test(ft_atoi_safe)
 	{
 		{
 			int	nbr = 420;
-			massert(ft_atoi_safe("123-45", &nbr), true);
-			massert(nbr, 123);
+			massert(ft_atoi_safe("123-45", &nbr), false);
 		}
 
 		{
 			int	nbr = 420;
-			massert(ft_atoi_safe("123+45", &nbr), true);
-			massert(nbr, 123);
+			massert(ft_atoi_safe("123+45", &nbr), false);
 		}
 
 		{
 			int	nbr = 420;
-			massert(ft_atoi_safe("123.45", &nbr), true);
-			massert(nbr, 123);
+			massert(ft_atoi_safe("123.45", &nbr), false);
 		}
 
 		{
 			int	nbr = 420;
-			massert(ft_atoi_safe("123a45", &nbr), true);
-			massert(nbr, 123);
+			massert(ft_atoi_safe("123a45", &nbr), false);
 		}
 	}
 
 	{
 		{
 			int	nbr = 420;
-			massert(ft_atoi_safe("12345-", &nbr), true);
-			massert(nbr, 12345);
+			massert(ft_atoi_safe("12345-", &nbr), false);
 		}
 
 		{
 			int	nbr = 420;
-			massert(ft_atoi_safe("12345+", &nbr), true);
-			massert(nbr, 12345);
+			massert(ft_atoi_safe("12345+", &nbr), false);
 		}
 
 		{
 			int	nbr = 420;
-			massert(ft_atoi_safe("12345.", &nbr), true);
-			massert(nbr, 12345);
+			massert(ft_atoi_safe("12345.", &nbr), false);
 		}
 
 		{
 			int	nbr = 420;
-			massert(ft_atoi_safe("12345a", &nbr), true);
-			massert(nbr, 12345);
+			massert(ft_atoi_safe("12345a", &nbr), false);
 		}
 	}
 
