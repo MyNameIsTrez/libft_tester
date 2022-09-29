@@ -78,6 +78,7 @@ Test(ft_split)
 			massert(split[9], "non");
 			massert(split[10], "risus.");
 			massert(split[11], "Suspendisse");
+			massert((void *)split[12], NULL);
 			ft_free_split(&split);
 		}
 
@@ -102,6 +103,19 @@ Test(ft_split)
 		// 	expected,
 		// 	69
 		// );
+	}
+
+	{
+		char	**split;
+		m_safe_assert(void *, split = ft_split("foo  bar", ' '), split, NULL, true);
+
+		if (split != NULL)
+		{
+			massert(split[0], "foo");
+			massert(split[1], "bar");
+			massert((void *)split[2], NULL);
+			ft_free_split(&split);
+		}
 	}
 
 	{
