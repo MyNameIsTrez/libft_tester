@@ -120,6 +120,11 @@ Test(ft_split)
 
 	{
 		char	**split;
+		m_safe_assert(void *, split = ft_split(NULL, ' '), NULL, NULL, true);
+	}
+
+	{
+		char	**split;
 		m_safe_assert(void *, split = ft_split("", ' '), split, NULL, true);
 
 		if (split != NULL)

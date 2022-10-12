@@ -19,6 +19,7 @@
 Test(ft_str_eq)
 {
 	massert(ft_str_eq("hello", "hello"), (bool)true);
+	massert(ft_str_eq("hello", "helloo"), (bool)false);
 	massert(ft_str_eq("hello", "world"), (bool)false);
 }
 
