@@ -30,19 +30,17 @@ Test(ft_calloc)
 	}
 }
 
-Test(ft_calloc_count_0)
+Test(ft_calloc_count_and_size)
 {
 	massert(ft_calloc(0, 2), NULL);
-}
-
-Test(ft_calloc_size_0)
-{
 	massert(ft_calloc(2, 0), NULL);
-}
-
-Test(ft_calloc_count_and_size_0)
-{
 	massert(ft_calloc(0, 0), NULL);
+
+	// massert(ft_calloc(SIZE_MAX, 1), NULL);
+
+	massert(ft_calloc(SIZE_MAX, 2), NULL);
+	massert(ft_calloc(2, SIZE_MAX), NULL);
+	massert(ft_calloc(SIZE_MAX, SIZE_MAX), NULL);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

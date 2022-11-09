@@ -35,19 +35,17 @@ Test(ft_malloc)
 	}
 }
 
-Test(ft_malloc_count_count_0)
+Test(ft_malloc_count_and_size)
 {
 	massert(ft_malloc(0, 1), NULL);
-}
-
-Test(ft_malloc_count_size_0)
-{
 	massert(ft_malloc(1, 0), NULL);
-}
-
-Test(ft_malloc_count_and_size_0)
-{
 	massert(ft_malloc(0, 0), NULL);
+
+	// massert(ft_malloc(SIZE_MAX, 1), NULL);
+
+	massert(ft_malloc(SIZE_MAX, 2), NULL);
+	massert(ft_malloc(2, SIZE_MAX), NULL);
+	massert(ft_malloc(SIZE_MAX, SIZE_MAX), NULL);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
