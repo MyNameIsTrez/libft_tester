@@ -23,4 +23,17 @@ Test(ft_strjoin)
 	massert((void *)ft_strjoin(NULL, "bar"), NULL);
 }
 
+Test(ft_strjoin_partial)
+{
+	char	*str = ft_stralloc(3);
+	if (str != NULL)
+	{
+		str[0] = 'a';
+		str[1] = 'b';
+		str[2] = 'c';
+
+		m_safe_string_assert_free(ft_strjoin("foo", str + 1), "foobc", true);
+	}
+}
+
 ////////////////////////////////////////////////////////////////////////////////
