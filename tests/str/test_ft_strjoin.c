@@ -19,8 +19,12 @@
 Test(ft_strjoin)
 {
 	m_safe_string_assert_free(ft_strjoin("lorem ipsum", "dolor sit amet"), "lorem ipsumdolor sit amet", true);
-	massert((void *)ft_strjoin("foo", NULL), NULL);
-	massert((void *)ft_strjoin(NULL, "bar"), NULL);
+}
+
+Test(ft_strjoin_null)
+{
+	m_safe_string_assert_free(ft_strjoin("foo", NULL), "foo", true);
+	m_safe_string_assert_free(ft_strjoin(NULL, "bar"), "bar", true);
 }
 
 Test(ft_strjoin_partial)
