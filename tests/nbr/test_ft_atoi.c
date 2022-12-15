@@ -18,6 +18,9 @@
 
 Test(ft_atoi)
 {
+	massert(ft_atoi("0"), 0);
+	massert(ft_atoi("0"), atoi("0"));
+
 	{
 		massert(ft_atoi("-12345"), -12345);
 		massert(ft_atoi("-12345"), atoi("-12345"));

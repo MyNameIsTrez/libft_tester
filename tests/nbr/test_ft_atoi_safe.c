@@ -19,6 +19,12 @@
 Test(ft_atoi_safe)
 {
 	{
+		int	nbr = 420;
+		massert(ft_atoi_safe("0", &nbr), true);
+		massert(nbr, 0);
+	}
+
+	{
 		{
 			int	nbr = 420;
 			massert(ft_atoi_safe("-12345", &nbr), true);
