@@ -16,12 +16,12 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-int	int_cmp_fn(void *lst_data, void *needle)
+int	int_cmp_fn(void *lst_content, void *needle)
 {
-	int	*lst_data_int = lst_data;
-	int	*needle_int = needle;
+	int	*lst_content_int_ptr = lst_content;
+	int	*needle_int_ptr = needle;
 
-	if (*lst_data_int == *needle_int)
+	if (*lst_content_int_ptr == *needle_int_ptr)
 		return (0);
 	return (1);
 }
@@ -138,12 +138,12 @@ Test(ft_lst_remove_if_int)
 	}
 }
 
-int	string_cmp_fn(void *content, void *needle)
+int	string_cmp_fn(void *lst_content, void *needle)
 {
-	char	*_content = content;
-	char	*_needle = needle;
+	char	*lst_content_string = lst_content;
+	char	*needle_string = needle;
 
-	if (ft_str_eq(_content, _needle))
+	if (ft_str_eq(lst_content_string, needle_string))
 		return (0);
 	return (1);
 }
