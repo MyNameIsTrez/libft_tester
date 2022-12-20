@@ -47,6 +47,7 @@ Test(ft_lstclear_NULL)
 	ft_lst_new_back(&lst, "baz");
 
 	ft_lstclear(&lst, NULL);
+	// TODO: I don't know how to assert that the content is still allocated
 	massert((void *)lst, NULL);
 }
 

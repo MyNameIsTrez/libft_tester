@@ -140,10 +140,10 @@ Test(ft_lst_remove_if_int)
 
 int	string_cmp_fn(void *lst_content, void *needle)
 {
-	char	*lst_content_string = lst_content;
+	char	**lst_content_string = lst_content;
 	char	*needle_string = needle;
 
-	if (ft_str_eq(lst_content_string, needle_string))
+	if (ft_str_eq(*lst_content_string, needle_string))
 		return (0);
 	return (1);
 }
@@ -156,7 +156,7 @@ Test(ft_lst_remove_if_string)
 	t_list	*lst = NULL;
 
 	char	*str1 = "foo";
-	ft_lst_remove_if(&lst, &str1, int_cmp_fn);
+	ft_lst_remove_if(&lst, str1, string_cmp_fn);
 	massert((void *)lst, NULL);
 
 
@@ -174,7 +174,7 @@ Test(ft_lst_remove_if_string)
 	// Remove `"foo"`
 	if (NOT was_malloc_unstable)
 	{
-		ft_lst_remove_if(&lst, &str1, int_cmp_fn);
+		ft_lst_remove_if(&lst, str1, string_cmp_fn);
 
 		massert((void *)lst, NULL);
 	}
@@ -235,7 +235,7 @@ Test(ft_lst_remove_if_string)
 	// Remove `"bar"`
 	if (NOT was_malloc_unstable)
 	{
-		ft_lst_remove_if(&lst, &str2, int_cmp_fn);
+		ft_lst_remove_if(&lst, str2, string_cmp_fn);
 
 		massert(*(char **)lst->content, "baz");
 		massert(*(char **)lst->next->content, "foo");
@@ -245,7 +245,7 @@ Test(ft_lst_remove_if_string)
 	// Remove `"baz"`
 	if (NOT was_malloc_unstable)
 	{
-		ft_lst_remove_if(&lst, &str3, int_cmp_fn);
+		ft_lst_remove_if(&lst, str3, string_cmp_fn);
 
 		massert(*(char **)lst->content, "foo");
 		massert((void *)lst->next, NULL);
@@ -254,7 +254,7 @@ Test(ft_lst_remove_if_string)
 	// Remove `"foo"`
 	if (NOT was_malloc_unstable)
 	{
-		ft_lst_remove_if(&lst, &str1, int_cmp_fn);
+		ft_lst_remove_if(&lst, str1, string_cmp_fn);
 
 		massert((void *)lst, NULL);
 	}
