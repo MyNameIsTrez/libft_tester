@@ -37,19 +37,18 @@ Test(ft_split_str)
 	}
 
 	{
-		char	*str = "AB4ABAB5AB6AB";
+		char	*str = "4ABABAB5AB6AB";
 		char	*sep = "AB";
 		char	**split_str;
 
 		m_safe_assert(void *, split_str = ft_split_str(str, sep), split_str, NULL, true);
 		if (split_str != NULL)
 		{
-			m_safe_string_assert(split_str[0], "", true);
-			m_safe_string_assert(split_str[1], "4", true);
+			m_safe_string_assert(split_str[0], "4", true);
+			m_safe_string_assert(split_str[1], "", true);
 			m_safe_string_assert(split_str[2], "", true);
 			m_safe_string_assert(split_str[3], "5", true);
 			m_safe_string_assert(split_str[4], "6", true);
-			// massert((void *)split_str[5], NULL);
 			m_safe_string_assert(split_str[5], "", true);
 			massert((void *)split_str[6], NULL);
 			ft_free_split(&split_str);

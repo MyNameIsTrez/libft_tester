@@ -120,6 +120,19 @@ Test(ft_split)
 
 	{
 		char	**split;
+		m_safe_assert(void *, split = ft_split("  foo  bar  ", ' '), split, NULL, true);
+
+		if (split != NULL)
+		{
+			massert(split[0], "foo");
+			massert(split[1], "bar");
+			massert((void *)split[2], NULL);
+			ft_free_split(&split);
+		}
+	}
+
+	{
+		char	**split;
 		m_safe_assert(void *, split = ft_split(NULL, ' '), NULL, NULL, true);
 	}
 
