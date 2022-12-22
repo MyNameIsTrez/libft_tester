@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_strstr.c                                   :+:    :+:            */
+/*   test_ft_strset.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
@@ -16,14 +16,12 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Test(ft_strstr)
+Test(ft_strset)
 {
-	massert(ft_strstr("foobar", ""), strstr("foobar", ""));
-	massert(ft_strstr("foobar", "b"), strstr("foobar", "b"));
-	massert(ft_strstr("foobar", "bx"), strstr("foobar", "bx"));
-	massert(ft_strstr("foobar", "ob"), strstr("foobar", "ob"));
-	massert((void *)ft_strstr("foobar", "baro"), (void *)strstr("foobar", "baro"));
-	massert((void *)ft_strstr("lorem ipsum dolor sit amet", "ipsumm"), (void *)strstr("lorem ipsum dolor sit amet", "ipsumm"));
+	massert((void *)ft_strset("foobar", ""), NULL);
+	massert((void *)ft_strset("foobar", "x"), NULL);
+	massert(ft_strset("foobar", "b"), "bar");
+	massert(ft_strset("foobar", "bx"), "bar");
 }
 
 ////////////////////////////////////////////////////////////////////////////////
