@@ -44,8 +44,8 @@ Test(ft_lst_remove_if_int)
 
 	if (NOT was_malloc_unstable)
 	{
-		massert(*(int *)new_lst->content, 1);
 		massert((void *)lst, (void *)new_lst);
+		massert(*(int *)new_lst->content, 1);
 		massert((void *)lst->next, (void *)old_lst);
 	}
 
@@ -138,6 +138,77 @@ Test(ft_lst_remove_if_int)
 	}
 }
 
+Test(ft_lst_remove_if_int_several)
+{
+	t_list	*new_lst;
+	t_list	*old_lst;
+
+	t_list	*lst = NULL;
+	old_lst = lst;
+
+	int	nbr1 = 1;
+
+
+	// Add `1` to front
+	if (NOT was_malloc_unstable)
+	{
+		old_lst = lst;
+		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr1), new_lst, NULL, false);
+	}
+
+	if (NOT was_malloc_unstable)
+	{
+		massert((void *)lst, (void *)new_lst);
+		massert(*(int *)new_lst->content, 1);
+		massert((void *)new_lst->next, NULL);
+	}
+
+	// Add `1` to front
+	if (NOT was_malloc_unstable)
+	{
+		old_lst = lst;
+		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr1), new_lst, NULL, false);
+	}
+
+	if (NOT was_malloc_unstable)
+	{
+		massert((void *)lst, (void *)new_lst);
+		massert(*(int *)new_lst->content, 1);
+		massert((void *)new_lst->next, (void *)old_lst);
+
+		massert(*(int *)lst->next->content, 1);
+		massert((void *)lst->next->next, NULL);
+	}
+
+	// Add `1` to front
+	if (NOT was_malloc_unstable)
+	{
+		old_lst = lst;
+		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr1), new_lst, NULL, false);
+	}
+
+	if (NOT was_malloc_unstable)
+	{
+		massert((void *)lst, (void *)new_lst);
+		massert(*(int *)new_lst->content, 1);
+		massert((void *)new_lst->next, (void *)old_lst);
+
+		massert(*(int *)new_lst->next->content, 1);
+
+		massert(*(int *)lst->next->next->content, 1);
+		massert((void *)lst->next->next->next, NULL);
+	}
+
+
+	// Remove `1`
+	if (NOT was_malloc_unstable)
+	{
+		ft_lst_remove_if(&lst, &nbr1, int_cmp_fn);
+
+		massert((void *)lst, NULL);
+	}
+}
+
 int	string_cmp_fn(void *lst_content, void *needle)
 {
 	char	**lst_content_string = lst_content;
@@ -166,8 +237,8 @@ Test(ft_lst_remove_if_string)
 
 	if (NOT was_malloc_unstable)
 	{
-		massert(*(char **)new_lst->content, "foo");
 		massert((void *)lst, (void *)new_lst);
+		massert(*(char **)new_lst->content, "foo");
 		massert((void *)lst->next, (void *)old_lst);
 	}
 
