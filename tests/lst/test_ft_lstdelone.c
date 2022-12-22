@@ -40,7 +40,8 @@ Test(ft_lstdelone)
 		if (lst != NULL)
 		{
 			massert((char *)lst->content, "bar");
-			ft_lstdelone(lst, free_content);
+			ft_lstdelone(&lst, free_content);
+			massert((void *)lst, NULL);
 		}
 	}
 }
