@@ -19,7 +19,7 @@
 Test(ft_str_not_set)
 {
 	massert((void *)ft_str_not_set("", ""), NULL);
-	massert(ft_str_not_set("1.2", "1234567890"), ".2");
+	massert(ft_str_not_set("1.24", "1234567890"), ".24");
 	massert((void *)ft_str_not_set("aba", "aba"), NULL);
 }
 
