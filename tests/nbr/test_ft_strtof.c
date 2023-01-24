@@ -38,6 +38,7 @@ void	compare_strtofs(char *input, float expected_result)
 Test(ft_strtof)
 {
 	compare_strtofs(" ", 0);
+	compare_strtofs(" x 255,255,255\n", 0);
 	compare_strtofs(" a", 0);
 	compare_strtofs(" -", 0);
 	compare_strtofs(" .", 0);
