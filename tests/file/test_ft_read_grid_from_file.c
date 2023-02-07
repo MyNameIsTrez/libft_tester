@@ -94,4 +94,15 @@ Test(ft_read_grid_from_lonely_character)
 	}
 }
 
+Test(ft_read_grid_from_nul_before_end)
+{
+	t_char_grid		grid;
+	t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/nul_before_end");
+	massert_success(success, ERROR);
+	if (NOT was_malloc_unstable)
+	{
+		massert_success(ft_get_error(), FT_ERROR_NON_RECTANGULAR_GRID);
+	}
+}
+
 ////////////////////////////////////////////////////////////////////////////////
