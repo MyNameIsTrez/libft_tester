@@ -28,7 +28,7 @@ Test(ft_free_recursive_pointer)
 
 	m_safe_malloc_assert(foo = ft_malloc(1, sizeof(t_foo)), false);
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		foo->x = 4;
 		foo->address = foo;

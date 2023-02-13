@@ -26,23 +26,23 @@
 // 	int i = 0;
 // 	while (i < 10)
 // 	{
-// 		if (NOT was_malloc_unstable)
+// 		if (!was_malloc_unstable)
 // 		{
 // 			v = i;
 // 			m_safe_assert(t_status, ft_vector_push(&ints, &v), OK, ERROR, false);
-// 			if (NOT was_malloc_unstable)
+// 			if (!was_malloc_unstable)
 // 				massert(ints[i], i);
 // 		}
 // 		i++;
 // 	}
 
-// 	if (NOT was_malloc_unstable)
+// 	if (!was_malloc_unstable)
 // 		m_safe_assert(t_status, ft_vector_remove(&ints, 0), OK, ERROR, false);
 
-// 	if (NOT was_malloc_unstable)
+// 	if (!was_malloc_unstable)
 // 		m_safe_assert(t_status, ft_vector_remove(&ints, 0), OK, ERROR, false);
 
-// 	if (NOT was_malloc_unstable)
+// 	if (!was_malloc_unstable)
 // 		massert(ft_vector_get_size(ints), (size_t)8);
 // }
 

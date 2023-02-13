@@ -21,7 +21,7 @@ Test(ft_remalloc_existing)
 	char	*str;
 
 	m_safe_malloc_assert(str = ft_malloc(2, sizeof(char)), false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		str[0] = 'a';
 		str[1] = '\0';
@@ -37,7 +37,7 @@ Test(ft_remalloc_existing)
 	char	*str_new;
 
 	m_safe_malloc_assert(str_new = ft_remalloc(&str, 2, 4, sizeof(char)), false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		str_new[2] = 'c';
 		str_new[3] = 'd';
@@ -54,7 +54,7 @@ Test(ft_remalloc_no_new)
 	char	*str;
 
 	m_safe_malloc_assert(str = ft_remalloc(NULL, 0, 2, sizeof(char)), false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 		massert(str, (char *)NULL);
 }
 
@@ -63,7 +63,7 @@ Test(ft_remalloc_size_zero)
 	char	*str;
 
 	m_safe_malloc_assert(str = ft_malloc(2, sizeof(char)), false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		str[0] = 'a';
 		str[1] = '\0';

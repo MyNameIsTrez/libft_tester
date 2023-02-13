@@ -21,7 +21,7 @@ Test(ft_recalloc_existing)
 	char	*str;
 
 	m_safe_malloc_assert(str = ft_calloc(2, 1), false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert(str[0], (char)'\0');
 		massert(str[1], (char)'\0');
@@ -34,7 +34,7 @@ Test(ft_recalloc_existing)
 	char	*str_new;
 
 	m_safe_string_assert(str_new = ft_recalloc(&str, 2, 4, sizeof(char)), str_new, false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert(str_new[2], (char)'\0');
 		massert(str_new[3], (char)'\0');
@@ -48,7 +48,7 @@ Test(ft_recalloc_no_new)
 	char	*str;
 
 	m_safe_malloc_assert(str = ft_recalloc(NULL, 0, 2, sizeof(char)), false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 		massert(str, (char *)NULL);
 }
 
@@ -57,7 +57,7 @@ Test(ft_recalloc_size_zero)
 	char	*str;
 
 	m_safe_malloc_assert(str = ft_calloc(2, 1), false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert(str[0], (char)'\0');
 		massert(str[1], (char)'\0');

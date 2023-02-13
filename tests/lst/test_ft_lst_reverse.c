@@ -23,16 +23,16 @@ Test(ft_lst_reverse)
 	lst = NULL;
 
 	m_safe_assert(void *, ft_lst_new_back(&lst, "foo"), ft_lstlast(lst), NULL, false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		m_safe_assert(void *, ft_lst_new_back(&lst, "bar"), ft_lstlast(lst), NULL, false);
 	}
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		m_safe_assert(void *, ft_lst_new_back(&lst, "baz"), ft_lstlast(lst), NULL, false);
 	}
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		ft_lst_reverse(&lst);
 		massert((char *)lst->content, "baz");

@@ -29,10 +29,10 @@ Test(ft_vector_iterator)
 	m_safe_assert(void *, ints = ft_vector_new(size), ints, NULL, false);
 
 	for (int i = 0; i < (int)count; i++)
-		if (NOT was_malloc_unstable)
+		if (!was_malloc_unstable)
 			ft_vector_push(&ints, &i);
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		it = ft_get_vector_iterator(ints);
 		massert(it.current, (intptr_t)ints);

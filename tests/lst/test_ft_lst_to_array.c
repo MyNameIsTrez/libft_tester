@@ -35,29 +35,29 @@ Test(ft_lst_to_array2)
 		void **array = NULL;
 
 		ft_lst_new_front(&lst, "foo");
-		if (NOT was_malloc_unstable)
+		if (!was_malloc_unstable)
 		{
 			ft_lst_new_front(&lst, "bar");
 		}
-		if (NOT was_malloc_unstable)
+		if (!was_malloc_unstable)
 		{
 			ft_lst_new_front(&lst, "baz");
 		}
-		if (NOT was_malloc_unstable)
+		if (!was_malloc_unstable)
 		{
 			ft_lst_new_front(&lst, "beep");
 		}
-		if (NOT was_malloc_unstable)
+		if (!was_malloc_unstable)
 		{
 			ft_lst_new_front(&lst, "boop");
 		}
-		if (NOT was_malloc_unstable)
+		if (!was_malloc_unstable)
 		{
 			array = ft_lst_to_array(lst);
 			m_safe_assert(void *, array, array, NULL, false);
 		}
 
-		if (array != NULL && NOT was_malloc_unstable)
+		if (array != NULL && !was_malloc_unstable)
 		{
 			m_safe_string_assert(array[0], "boop", true);
 			m_safe_string_assert(array[1], "beep", true);

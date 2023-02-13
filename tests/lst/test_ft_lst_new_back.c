@@ -24,27 +24,27 @@ Test(ft_lst_new_back)
 	lst = NULL;
 
 	m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, "foo"), new_lst, NULL, false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert((char *)new_lst->content, "foo");
 		massert((void *)lst, (void *)new_lst);
 	}
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, "bar"), new_lst, NULL, false);
 	}
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert((char *)new_lst->content, "bar");
 		massert((void *)lst->next, (void *)new_lst);
 	}
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, "baz"), new_lst, NULL, false);
 	}
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert((char *)new_lst->content, "baz");
 		massert((void *)lst->next->next, (void *)new_lst);

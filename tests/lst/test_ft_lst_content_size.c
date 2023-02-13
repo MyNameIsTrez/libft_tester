@@ -29,25 +29,25 @@ Test(ft_lst_content_size)
 	massert(ft_lst_content_size(lst, (t_size_fn) &(ft_strlen)), (size_t)0);
 
 	m_safe_assert(void *, ft_lst_new_back(&lst, "foo"), ft_lstlast(lst), NULL, false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert(ft_lst_content_size(lst, (t_size_fn) &(ft_strlen)), (size_t)3);
 	}
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		m_safe_assert(void *, ft_lst_new_back(&lst, "bar"), ft_lstlast(lst), NULL, false);
 	}
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert(ft_lst_content_size(lst, (t_size_fn) &(ft_strlen)), (size_t)6);
 	}
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		m_safe_assert(void *, ft_lst_new_back(&lst, "baz"), ft_lstlast(lst), NULL, false);
 	}
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert(ft_lst_content_size(lst, (t_size_fn) &(ft_strlen)), (size_t)9);
 	}

@@ -23,7 +23,7 @@ Test(ft_read_grid_from_empty)
 
 	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/empty");
 	massert(success, (t_status)ERROR);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 		massert(ft_get_error(), (t_ft_error)FT_ERROR_EMPTY_FILE);
 }
 
@@ -32,7 +32,7 @@ Test(ft_read_grid_from_no_trailing_newline)
 	t_char_grid		grid;
 	t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/no_trailing_newline");
 	m_safe_assert(t_status, success, OK, ERROR, false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert(grid.width, (size_t)13);
 		massert(grid.height, (size_t)5);
@@ -49,7 +49,7 @@ Test(ft_read_grid_from_not_rectangular)
 	t_char_grid		grid;
 	t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/not_rectangular");
 	massert_success(success, ERROR);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert_success(ft_get_error(), FT_ERROR_NON_RECTANGULAR_GRID);
 	}
@@ -60,7 +60,7 @@ Test(ft_read_grid_from_trailing_newline)
 	t_char_grid		grid;
 	t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/trailing_newline");
 	m_safe_assert(t_status, success, OK, ERROR, false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert(grid.width, (size_t)13);
 		massert(grid.height, (size_t)5);
@@ -77,7 +77,7 @@ Test(ft_read_grid_from_newline_inbetween)
 	t_char_grid		grid;
 	t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/newline_inbetween");
 	massert_success(success, ERROR);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert_success(ft_get_error(), FT_ERROR_NON_RECTANGULAR_GRID);
 	}
@@ -88,7 +88,7 @@ Test(ft_read_grid_from_lonely_character)
 	t_char_grid		grid;
 	t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/lonely_character");
 	massert_success(success, ERROR);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert_success(ft_get_error(), FT_ERROR_NON_RECTANGULAR_GRID);
 	}
@@ -99,7 +99,7 @@ Test(ft_read_grid_from_nul_before_end)
 	t_char_grid		grid;
 	t_status	success = ft_read_grid_from_file(&grid, "tests/file/ft_read_grid_from_file_test_files/nul_before_end");
 	massert_success(success, ERROR);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert_success(ft_get_error(), FT_ERROR_NON_RECTANGULAR_GRID);
 	}

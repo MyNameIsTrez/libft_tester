@@ -23,30 +23,30 @@ Test(ft_deque_at)
 
 	m_safe_assert(void *, ints = ft_deque_new_reserved(sizeof(int), 2), ints, NULL, false);
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		v = 1;
 		m_safe_assert(t_status, ft_deque_push_back(ints, &v), OK, ERROR, false);
 	}
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		v = 2;
 		m_safe_assert(t_status, ft_deque_push_back(ints, &v), OK, ERROR, false);
 	}
-	// if (NOT was_malloc_unstable)
+	// if (!was_malloc_unstable)
 	// {
 	// 	v = 3;
 	// 	m_safe_assert(t_status, ft_deque_push_back(ints, &v), OK, ERROR, false);
 	// }
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert(*(int *)ft_deque_at(ints, 0), 1);
 		massert(*(int *)ft_deque_at(ints, 1), 2);
 		// massert(*(int *)ft_deque_at(ints, 2), 3);
 	}
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert(ft_deque_size(ints), (size_t)2);
 	}

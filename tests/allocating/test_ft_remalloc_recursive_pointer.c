@@ -28,7 +28,7 @@ Test(ft_remalloc_recursive_pointer)
 
 	m_safe_malloc_assert(foo = ft_malloc(1, sizeof(t_foo)), false);
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		foo->x = 4;
 		foo->address = foo;
@@ -36,7 +36,7 @@ Test(ft_remalloc_recursive_pointer)
 		t_foo	*new_foo;
 		m_safe_malloc_assert(new_foo = ft_remalloc(&foo->address, 1, 2, sizeof(t_foo)), false);
 
-		if (NOT was_malloc_unstable)
+		if (!was_malloc_unstable)
 		{
 			new_foo[1].x = 2;
 			new_foo[1].address = (void *)0x42;

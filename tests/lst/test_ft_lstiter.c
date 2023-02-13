@@ -33,14 +33,14 @@ Test(ft_lstiter)
 	m_safe_assert(void *, ft_lst_new_back(&lst, str), ft_lstlast(lst), NULL, false);
 	if (was_malloc_unstable)
 		ft_free(&str);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		str = strdup("bar");
 		m_safe_assert(void *, ft_lst_new_back(&lst, str), ft_lstlast(lst), NULL, false);
 		if (was_malloc_unstable)
 			ft_free(&str);
 	}
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		str = strdup("baz");
 		m_safe_assert(void *, ft_lst_new_back(&lst, str), ft_lstlast(lst), NULL, false);
@@ -49,7 +49,7 @@ Test(ft_lstiter)
 	}
 
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		ft_lstiter(lst, foo);
 		massert((char *)lst->content, "xoo");

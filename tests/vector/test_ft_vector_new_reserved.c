@@ -23,26 +23,26 @@ Test(ft_vector_new_reserved)
 
 	m_safe_assert(void *, ints = ft_vector_new_reserved(sizeof(int), 2), ints, NULL, false);
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 		massert(ft_vector_get_capacity(ints), (size_t)2);
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		v = 1;
 		m_safe_assert(t_status, ft_vector_push(&ints, &v), OK, ERROR, false);
 	}
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		v = 2;
 		m_safe_assert(t_status, ft_vector_push(&ints, &v), OK, ERROR, false);
 	}
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		v = 3;
 		m_safe_assert(t_status, ft_vector_push(&ints, &v), OK, ERROR, false);
 	}
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		massert(ints[0], 1);
 		massert(ints[1], 2);

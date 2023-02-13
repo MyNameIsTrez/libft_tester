@@ -28,7 +28,7 @@ Test(ft_lstlast)
 	t_list *last = ft_lstnew("baz");
 	ft_lstadd_back(&lst, last);
 
-	if (lst != NULL AND last != NULL)
+	if (lst != NULL && last != NULL)
 		massert((void *)ft_lstlast(lst), (void *)last);
 	ft_lstclear(&lst, NULL);
 }

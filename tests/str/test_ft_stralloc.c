@@ -21,7 +21,7 @@ Test(ft_stralloc)
 	char	*str;
 
 	m_safe_malloc_assert(str = ft_stralloc(5), false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		str[0] = 'h';
 		str[1] = 'e';

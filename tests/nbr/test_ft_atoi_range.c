@@ -16,15 +16,6 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-int	get_negative_value(const char *str, bool *out_of_range);
-Test(STATIC_get_negative_value)
-{
-	bool out_of_range = false;
-
-	massert(get_negative_value("123", &out_of_range), -123);
-	massert(out_of_range, false);
-}
-
 Test(ft_atoi_range)
 {
 	{

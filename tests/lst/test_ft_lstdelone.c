@@ -29,7 +29,7 @@ Test(ft_lstdelone)
 	t_list	*lst;
 
 	foo = ft_malloc(4, sizeof(char));
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		foo[0] = 'b';
 		foo[1] = 'a';

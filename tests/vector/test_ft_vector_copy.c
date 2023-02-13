@@ -26,22 +26,22 @@ Test(ft_vector_copy)
 	int i = 0;
 	while (i < 3)
 	{
-		if (NOT was_malloc_unstable)
+		if (!was_malloc_unstable)
 		{
 			v = i;
 			m_safe_assert(t_status, ft_vector_push(&ints, &v), OK, ERROR, false);
-			if (NOT was_malloc_unstable)
+			if (!was_malloc_unstable)
 				massert(ints[i], i);
 		}
 		i++;
 	}
 
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		int	*ints2;
 		m_safe_assert(void *, ints2 = ft_vector_copy(ints), ints2, NULL, false);
 
-		if (NOT was_malloc_unstable)
+		if (!was_malloc_unstable)
 		{
 			massert(ints2[0], 0);
 			massert(ints2[1], 1);

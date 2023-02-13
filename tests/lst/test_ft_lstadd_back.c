@@ -24,12 +24,12 @@ Test(ft_lstadd_back)
 	lst = NULL;
 
 	m_safe_assert(void *, new = ft_lstnew("foo"), new, NULL, false);
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		ft_lstadd_back(&lst, new);
 		m_safe_assert(void *, new = ft_lstnew("foo"), new, NULL, false);
 	}
-	if (NOT was_malloc_unstable)
+	if (!was_malloc_unstable)
 	{
 		ft_lstadd_back(&lst, new);
 		massert(ft_lstsize(lst), (size_t)2);
