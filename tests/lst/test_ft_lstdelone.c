@@ -10,25 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 static void	free_content(void *content)
 {
 	ft_free(&content);
 }
 
-////////////////////////////////////////////////////////////////////////////////
-
 Test(ft_lstdelone)
 {
 	char	*foo;
 	t_list	*lst;
 
-	foo = ft_malloc(4, sizeof(char));
+	foo = ft_malloc(4, sizeof(char), "test ft_lstdelone 1");
 	if (!was_malloc_unstable)
 	{
 		foo[0] = 'b';
@@ -36,7 +30,7 @@ Test(ft_lstdelone)
 		foo[2] = 'r';
 		foo[3] = '\0';
 
-		lst = ft_lstnew(foo);
+		lst = ft_lstnew(foo, "test ft_lstdelone 2");
 		if (lst != NULL)
 		{
 			massert((char *)lst->content, "bar");
@@ -45,5 +39,3 @@ Test(ft_lstdelone)
 		}
 	}
 }
-
-////////////////////////////////////////////////////////////////////////////////

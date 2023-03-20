@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_array_iterator)
 {
@@ -26,7 +22,7 @@ Test(ft_array_iterator)
 	count = 2;
 	size = sizeof(*ints);
 
-	m_safe_assert(void *, ints = ft_malloc(count, size), ints, NULL, false);
+	m_safe_assert(void *, ints = ft_malloc(count, size, "test ft_array_iterator"), ints, NULL, false);
 
 	it = ft_get_array_iterator(ints, count, size);
 	massert(it.current, (intptr_t)ints);
@@ -52,5 +48,3 @@ Test(ft_array_iterator)
 	massert(it.stop, (intptr_t)(((uintptr_t)ints) + count * size));
 	massert(it.step, (intptr_t)size);
 }
-
-////////////////////////////////////////////////////////////////////////////////

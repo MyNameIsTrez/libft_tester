@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 void	ft_put_substr_test(char *start, char *end, char *ret, ssize_t on_error)
 {
@@ -46,13 +42,9 @@ void	ft_put_substr_test(char *start, char *end, char *ret, ssize_t on_error)
 	close(stdout_fd);
 }
 
-////////////////////////////////////////////////////////////////////////////////
-
 Test(ft_put_substr)
 {
 	char *str = "abcdef";
 	ft_put_substr_test(str, str + 3, "abc", -1);
 	ft_put_substr_test(str, strchr(str, 'e'), "abcd", -1);
 }
-
-////////////////////////////////////////////////////////////////////////////////

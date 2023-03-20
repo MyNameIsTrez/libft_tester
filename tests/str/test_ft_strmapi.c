@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 static char	increase_by_index(unsigned int i, char c)
 {
@@ -23,7 +19,5 @@ static char	increase_by_index(unsigned int i, char c)
 
 Test(ft_strmapi)
 {
-	m_safe_string_assert_free(ft_strmapi("foo", increase_by_index), "fpq", true);
+	m_safe_string_assert_free(ft_strmapi("foo", increase_by_index, "test ft_strmapi"), "fpq", true);
 }
-
-////////////////////////////////////////////////////////////////////////////////

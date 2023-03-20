@@ -10,18 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_vector_strings)
 {
 	char	**strings;
 	char	*string;
 
-	m_safe_malloc_assert(strings = ft_vector_new(sizeof(char *)), false);
+	m_safe_malloc_assert(strings = ft_vector_new(sizeof(char *), "test ft_vector_strings"), false);
 
 	if (!was_malloc_unstable)
 	{
@@ -52,5 +48,3 @@ Test(ft_vector_strings)
 		ft_free(&string);
 	}
 }
-
-////////////////////////////////////////////////////////////////////////////////

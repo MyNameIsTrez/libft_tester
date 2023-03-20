@@ -10,19 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
 #include "src/deque/back/ft_deque_back.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_vector_from_deque)
 {
 	t_deque	*deque;
 	int		v;
 
-	m_safe_assert(void *, deque = ft_deque_new_reserved(sizeof(int), 3), deque, NULL, false);
+	m_safe_assert(void *, deque = ft_deque_new_reserved(sizeof(int), 3, "test ft_vector_from_deque"), deque, NULL, false);
 
 	if (!was_malloc_unstable)
 	{
@@ -54,5 +50,3 @@ Test(ft_vector_from_deque)
 		massert(vector[2], 3);
 	}
 }
-
-////////////////////////////////////////////////////////////////////////////////

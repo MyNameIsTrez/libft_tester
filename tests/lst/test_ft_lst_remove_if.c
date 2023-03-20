@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 int	int_cmp_fn(void *lst_content, void *needle)
 {
@@ -40,7 +36,7 @@ Test(ft_lst_remove_if_int)
 
 	// Add `1` to front
 	old_lst = lst;
-	m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr1), new_lst, NULL, false);
+	m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr1, "test ft_lst_remove_if_int 1"), new_lst, NULL, false);
 
 	if (!was_malloc_unstable)
 	{
@@ -62,7 +58,7 @@ Test(ft_lst_remove_if_int)
 	if (!was_malloc_unstable)
 	{
 		old_lst = lst;
-		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr1), new_lst, NULL, false);
+		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr1, "test ft_lst_remove_if_int 2"), new_lst, NULL, false);
 	}
 
 	if (!was_malloc_unstable)
@@ -77,7 +73,7 @@ Test(ft_lst_remove_if_int)
 	if (!was_malloc_unstable)
 	{
 		old_lst = lst;
-		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr2), new_lst, NULL, false);
+		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr2, "test ft_lst_remove_if_int 3"), new_lst, NULL, false);
 	}
 
 	if (!was_malloc_unstable)
@@ -95,7 +91,7 @@ Test(ft_lst_remove_if_int)
 	if (!was_malloc_unstable)
 	{
 		old_lst = lst;
-		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr3), new_lst, NULL, false);
+		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr3, "test ft_lst_remove_if_int 4"), new_lst, NULL, false);
 	}
 
 	if (!was_malloc_unstable)
@@ -153,7 +149,7 @@ Test(ft_lst_remove_if_int_several)
 	if (!was_malloc_unstable)
 	{
 		old_lst = lst;
-		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr1), new_lst, NULL, false);
+		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr1, "test ft_lst_remove_if_int_several 1"), new_lst, NULL, false);
 	}
 
 	if (!was_malloc_unstable)
@@ -167,7 +163,7 @@ Test(ft_lst_remove_if_int_several)
 	if (!was_malloc_unstable)
 	{
 		old_lst = lst;
-		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr1), new_lst, NULL, false);
+		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr1, "test ft_lst_remove_if_int_several 2"), new_lst, NULL, false);
 	}
 
 	if (!was_malloc_unstable)
@@ -184,7 +180,7 @@ Test(ft_lst_remove_if_int_several)
 	if (!was_malloc_unstable)
 	{
 		old_lst = lst;
-		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr1), new_lst, NULL, false);
+		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &nbr1, "test ft_lst_remove_if_int_several 3"), new_lst, NULL, false);
 	}
 
 	if (!was_malloc_unstable)
@@ -233,7 +229,7 @@ Test(ft_lst_remove_if_string)
 
 	// Add `"foo"` to front
 	old_lst = lst;
-	m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &str1), new_lst, NULL, false);
+	m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &str1, "test ft_lst_remove_if_string 1"), new_lst, NULL, false);
 
 	if (!was_malloc_unstable)
 	{
@@ -255,7 +251,7 @@ Test(ft_lst_remove_if_string)
 	if (!was_malloc_unstable)
 	{
 		old_lst = lst;
-		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &str1), new_lst, NULL, false);
+		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &str1, "test ft_lst_remove_if_string 2"), new_lst, NULL, false);
 	}
 
 	if (!was_malloc_unstable)
@@ -270,7 +266,7 @@ Test(ft_lst_remove_if_string)
 	if (!was_malloc_unstable)
 	{
 		old_lst = lst;
-		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &str2), new_lst, NULL, false);
+		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &str2, "test ft_lst_remove_if_string 3"), new_lst, NULL, false);
 	}
 
 	if (!was_malloc_unstable)
@@ -288,7 +284,7 @@ Test(ft_lst_remove_if_string)
 	if (!was_malloc_unstable)
 	{
 		old_lst = lst;
-		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &str3), new_lst, NULL, false);
+		m_safe_assert(void *, new_lst = ft_lst_new_front(&lst, &str3, "test ft_lst_remove_if_string 4"), new_lst, NULL, false);
 	}
 
 	if (!was_malloc_unstable)

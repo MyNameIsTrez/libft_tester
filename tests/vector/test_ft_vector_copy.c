@@ -10,18 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_vector_copy)
 {
 	int	*ints;
 	int	v;
 
-	m_safe_assert(void *, ints = ft_vector_new(sizeof(int)), ints, NULL, false);
+	m_safe_assert(void *, ints = ft_vector_new(sizeof(int), "test ft_vector_copy"), ints, NULL, false);
 
 	int i = 0;
 	while (i < 3)
@@ -51,5 +47,3 @@ Test(ft_vector_copy)
 		}
 	}
 }
-
-////////////////////////////////////////////////////////////////////////////////

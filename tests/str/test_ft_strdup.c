@@ -10,18 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_strdup)
 {
 	char	*a = "hello";
-	m_safe_string_assert_free(ft_strdup(a), a, true);
-	char	*dup = ft_strdup(a);
+	m_safe_string_assert_free(ft_strdup(a, "test ft_strdup 1"), a, true);
+	char	*dup = ft_strdup(a, "test ft_strdup 2");
 	massert((bool)(dup == a), false);
 }
-
-////////////////////////////////////////////////////////////////////////////////

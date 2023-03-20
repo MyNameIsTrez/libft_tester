@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_rejoin_split)
 {
@@ -23,10 +19,10 @@ Test(ft_rejoin_split)
 		char	*sep = "AB";
 
 		char	**split;
-		m_safe_assert(void *, split = ft_split_str(str, sep), split, NULL, true);
+		m_safe_assert(void *, split = ft_split_str(str, sep, "test ft_rejoin_split 1"), split, NULL, true);
 		if (split != NULL)
 		{
-			m_safe_string_assert_free(ft_rejoin_split(split, "C"), "C1CC2C3", true);
+			m_safe_string_assert_free(ft_rejoin_split(split, "C", "test ft_rejoin_split 2"), "C1CC2C3", true);
 			ft_free_split(&split);
 		}
 	}
@@ -36,13 +32,11 @@ Test(ft_rejoin_split)
 		char	*sep = "AB";
 
 		char	**split;
-		m_safe_assert(void *, split = ft_split_str(str, sep), split, NULL, true);
+		m_safe_assert(void *, split = ft_split_str(str, sep, "test ft_rejoin_split 3"), split, NULL, true);
 		if (split != NULL)
 		{
-			m_safe_string_assert_free(ft_rejoin_split(split, "C"), "C1CC2C3C", true);
+			m_safe_string_assert_free(ft_rejoin_split(split, "C", "test ft_rejoin_split 4"), "C1CC2C3C", true);
 			ft_free_split(&split);
 		}
 	}
 }
-
-////////////////////////////////////////////////////////////////////////////////

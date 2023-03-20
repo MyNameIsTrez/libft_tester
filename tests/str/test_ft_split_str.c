@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_split_str)
 {
@@ -23,7 +19,7 @@ Test(ft_split_str)
 		char	*sep = "AB";
 		char	**split_str;
 
-		m_safe_assert(void *, split_str = ft_split_str(str, sep), split_str, NULL, true);
+		m_safe_assert(void *, split_str = ft_split_str(str, sep, "test ft_split_str 1"), split_str, NULL, true);
 		if (split_str != NULL)
 		{
 			m_safe_string_assert(split_str[0], "", true);
@@ -41,7 +37,7 @@ Test(ft_split_str)
 		char	*sep = "AB";
 		char	**split_str;
 
-		m_safe_assert(void *, split_str = ft_split_str(str, sep), split_str, NULL, true);
+		m_safe_assert(void *, split_str = ft_split_str(str, sep, "test ft_split_str 2"), split_str, NULL, true);
 		if (split_str != NULL)
 		{
 			m_safe_string_assert(split_str[0], "4", true);
@@ -60,7 +56,7 @@ Test(ft_split_str)
 		char	*sep = "";
 		char	**split_str;
 
-		m_safe_assert(void *, split_str = ft_split_str(str, sep), split_str, NULL, true);
+		m_safe_assert(void *, split_str = ft_split_str(str, sep, "test ft_split_str 3"), split_str, NULL, true);
 		if (split_str != NULL)
 		{
 			m_safe_string_assert(split_str[0], "", true);
@@ -75,5 +71,3 @@ Test(ft_split_str)
 		// ft_free_split(&split_str);
 	}
 }
-
-////////////////////////////////////////////////////////////////////////////////

@@ -10,17 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_strtrim)
 {
-	m_safe_string_assert_free(ft_strtrim("lorem \n ipsum \t dolor \n sit \t amet", " "), "lorem \n ipsum \t dolor \n sit \t amet", true);
-	m_safe_string_assert_free(ft_strtrim(" a", " \t\n\v\f\r"), "a", true);
-	m_safe_string_assert_free(ft_strtrim("  \t \t \n   \n\n\n\t", " \n\t"), "", true);
+	m_safe_string_assert_free(ft_strtrim("lorem \n ipsum \t dolor \n sit \t amet", " ", "test ft_strtrim 1"), "lorem \n ipsum \t dolor \n sit \t amet", true);
+	m_safe_string_assert_free(ft_strtrim(" a", " \t\n\v\f\r", "test ft_strtrim 2"), "a", true);
+	m_safe_string_assert_free(ft_strtrim("  \t \t \n   \n\n\n\t", " \n\t", "test ft_strtrim 3"), "", true);
 }
-
-////////////////////////////////////////////////////////////////////////////////

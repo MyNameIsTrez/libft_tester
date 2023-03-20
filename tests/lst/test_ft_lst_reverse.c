@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_lst_reverse)
 {
@@ -22,14 +18,14 @@ Test(ft_lst_reverse)
 
 	lst = NULL;
 
-	m_safe_assert(void *, ft_lst_new_back(&lst, "foo"), ft_lstlast(lst), NULL, false);
+	m_safe_assert(void *, ft_lst_new_back(&lst, "foo", "test ft_lst_reverse 1"), ft_lstlast(lst), NULL, false);
 	if (!was_malloc_unstable)
 	{
-		m_safe_assert(void *, ft_lst_new_back(&lst, "bar"), ft_lstlast(lst), NULL, false);
+		m_safe_assert(void *, ft_lst_new_back(&lst, "bar", "test ft_lst_reverse 2"), ft_lstlast(lst), NULL, false);
 	}
 	if (!was_malloc_unstable)
 	{
-		m_safe_assert(void *, ft_lst_new_back(&lst, "baz"), ft_lstlast(lst), NULL, false);
+		m_safe_assert(void *, ft_lst_new_back(&lst, "baz", "test ft_lst_reverse 3"), ft_lstlast(lst), NULL, false);
 	}
 
 	if (!was_malloc_unstable)
@@ -43,5 +39,3 @@ Test(ft_lst_reverse)
 
 	ft_lstclear(&lst, NULL);
 }
-
-////////////////////////////////////////////////////////////////////////////////

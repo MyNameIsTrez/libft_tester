@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 static void foo(void *content)
 {
@@ -30,20 +26,20 @@ Test(ft_lstiter)
 	char *str;
 
 	str = strdup("foo");
-	m_safe_assert(void *, ft_lst_new_back(&lst, str), ft_lstlast(lst), NULL, false);
+	m_safe_assert(void *, ft_lst_new_back(&lst, str, "test ft_lstiter 1"), ft_lstlast(lst), NULL, false);
 	if (was_malloc_unstable)
 		ft_free(&str);
 	if (!was_malloc_unstable)
 	{
 		str = strdup("bar");
-		m_safe_assert(void *, ft_lst_new_back(&lst, str), ft_lstlast(lst), NULL, false);
+		m_safe_assert(void *, ft_lst_new_back(&lst, str, "test ft_lstiter 2"), ft_lstlast(lst), NULL, false);
 		if (was_malloc_unstable)
 			ft_free(&str);
 	}
 	if (!was_malloc_unstable)
 	{
 		str = strdup("baz");
-		m_safe_assert(void *, ft_lst_new_back(&lst, str), ft_lstlast(lst), NULL, false);
+		m_safe_assert(void *, ft_lst_new_back(&lst, str, "test ft_lstiter 3"), ft_lstlast(lst), NULL, false);
 		if (was_malloc_unstable)
 			ft_free(&str);
 	}
@@ -60,5 +56,3 @@ Test(ft_lstiter)
 
 	ft_lstclear(&lst, &free);
 }
-
-////////////////////////////////////////////////////////////////////////////////

@@ -10,18 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_substr)
 {
-	m_safe_string_assert_free(ft_substr("lorem ipsum dolor sit amet", 400, 20), "", true);
-	m_safe_string_assert_free(ft_substr("lorem ipsum dolor sit amet", 5, 0), "", true);
-	m_safe_string_assert_free(ft_substr("lorem ipsum dolor sit amet", 0, 0), "", true);
-	m_safe_string_assert_free(ft_substr(" a", 1, 1), "a", true);
+	m_safe_string_assert_free(ft_substr("lorem ipsum dolor sit amet", 400, 20, "test ft_substr 1"), "", true);
+	m_safe_string_assert_free(ft_substr("lorem ipsum dolor sit amet", 5, 0, "test ft_substr 2"), "", true);
+	m_safe_string_assert_free(ft_substr("lorem ipsum dolor sit amet", 0, 0, "test ft_substr 3"), "", true);
+	m_safe_string_assert_free(ft_substr(" a", 1, 1, "test ft_substr 4"), "a", true);
 }
-
-////////////////////////////////////////////////////////////////////////////////

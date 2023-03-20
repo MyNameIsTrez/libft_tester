@@ -10,17 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_strjoin_array)
 {
-	m_safe_string_assert_free(ft_strjoin_array((char *[]){NULL}), NULL, true);
-	m_safe_string_assert_free(ft_strjoin_array((char *[]){"a", NULL}), "a", true);
-	m_safe_string_assert_free(ft_strjoin_array((char *[]){"a", "b", NULL}), "ab", true);
+	m_safe_string_assert_free(ft_strjoin_array((char *[]){NULL}, "test ft_strjoin_array 1"), NULL, true);
+	m_safe_string_assert_free(ft_strjoin_array((char *[]){"a", NULL}, "test ft_strjoin_array 2"), "a", true);
+	m_safe_string_assert_free(ft_strjoin_array((char *[]){"a", "b", NULL}, "test ft_strjoin_array 3"), "ab", true);
 }
-
-////////////////////////////////////////////////////////////////////////////////

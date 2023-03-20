@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_get_allocation_count)
 {
@@ -22,7 +18,7 @@ Test(ft_get_allocation_count)
 
 	char	*str;
 
-	m_safe_malloc_assert(str = ft_malloc(4, sizeof(char)), true);
+	m_safe_malloc_assert(str = ft_malloc(4, sizeof(char), "test ft_get_allocation_count"), true);
 	if (str != NULL)
 	{
 		massert(ft_get_allocation_count(), (size_t)1);
@@ -32,5 +28,3 @@ Test(ft_get_allocation_count)
 		massert(ft_get_allocation_count(), (size_t)0);
 	}
 }
-
-////////////////////////////////////////////////////////////////////////////////

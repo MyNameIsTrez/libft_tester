@@ -10,18 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_vector_pop_back)
 {
 	int	*ints;
 	int	v;
 
-	m_safe_assert(void *, ints = ft_vector_new(sizeof(int)), ints, NULL, false);
+	m_safe_assert(void *, ints = ft_vector_new(sizeof(int), "test ft_vector_pop_back"), ints, NULL, false);
 
 	int i = 0;
 	while (i < 10)
@@ -44,5 +40,3 @@ Test(ft_vector_pop_back)
 	if (!was_malloc_unstable)
 		massert(ft_vector_get_size(ints), (size_t)8);
 }
-
-////////////////////////////////////////////////////////////////////////////////

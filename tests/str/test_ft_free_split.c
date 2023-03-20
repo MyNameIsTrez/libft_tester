@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_free_split)
 {
@@ -22,7 +18,7 @@ Test(ft_free_split)
 	char	*sep = "AB";
 	char	**split_str;
 
-	m_safe_assert(void *, split_str = ft_split_str(str, sep), split_str, NULL, true);
+	m_safe_assert(void *, split_str = ft_split_str(str, sep, "test ft_free_split"), split_str, NULL, true);
 
 	if (split_str != NULL)
 	{
@@ -30,5 +26,3 @@ Test(ft_free_split)
 		massert((void *)split_str, NULL);
 	}
 }
-
-////////////////////////////////////////////////////////////////////////////////

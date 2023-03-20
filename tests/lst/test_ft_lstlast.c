@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_lstlast)
 {
@@ -22,15 +18,13 @@ Test(ft_lstlast)
 
 	lst = NULL;
 
-	ft_lst_new_back(&lst, "foo");
-	ft_lst_new_back(&lst, "bar");
+	ft_lst_new_back(&lst, "foo", "test ft_lstlast 1");
+	ft_lst_new_back(&lst, "bar", "test ft_lstlast 2");
 
-	t_list *last = ft_lstnew("baz");
+	t_list *last = ft_lstnew("baz", "test ft_lstlast 3");
 	ft_lstadd_back(&lst, last);
 
 	if (lst != NULL && last != NULL)
 		massert((void *)ft_lstlast(lst), (void *)last);
 	ft_lstclear(&lst, NULL);
 }
-
-////////////////////////////////////////////////////////////////////////////////

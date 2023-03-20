@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_lstadd_back)
 {
@@ -23,11 +19,11 @@ Test(ft_lstadd_back)
 
 	lst = NULL;
 
-	m_safe_assert(void *, new = ft_lstnew("foo"), new, NULL, false);
+	m_safe_assert(void *, new = ft_lstnew("foo", "test ft_lstadd_back 1"), new, NULL, false);
 	if (!was_malloc_unstable)
 	{
 		ft_lstadd_back(&lst, new);
-		m_safe_assert(void *, new = ft_lstnew("foo"), new, NULL, false);
+		m_safe_assert(void *, new = ft_lstnew("foo", "test ft_lstadd_back 2"), new, NULL, false);
 	}
 	if (!was_malloc_unstable)
 	{
@@ -37,5 +33,3 @@ Test(ft_lstadd_back)
 
 	ft_lstclear(&lst, NULL);
 }
-
-////////////////////////////////////////////////////////////////////////////////

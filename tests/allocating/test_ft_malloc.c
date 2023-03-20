@@ -10,17 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_malloc)
 {
 	char	*str;
 
-	m_safe_malloc_assert(str = ft_malloc(4, sizeof(char)), true);
+	m_safe_malloc_assert(str = ft_malloc(4, sizeof(char), "test ft_malloc"), true);
 	if (str != NULL)
 	{
 		str[0] = 'a';
@@ -37,15 +33,13 @@ Test(ft_malloc)
 
 Test(ft_malloc_count_and_size)
 {
-	massert(ft_malloc(0, 1), NULL);
-	massert(ft_malloc(1, 0), NULL);
-	massert(ft_malloc(0, 0), NULL);
+	massert(ft_malloc(0, 1, "test ft_malloc_count_and_size 1"), NULL);
+	massert(ft_malloc(1, 0, "test ft_malloc_count_and_size 2"), NULL);
+	massert(ft_malloc(0, 0, "test ft_malloc_count_and_size 3"), NULL);
 
 	// massert(ft_malloc(SIZE_MAX, 1), NULL);
 
-	massert(ft_malloc(SIZE_MAX, 2), NULL);
-	massert(ft_malloc(2, SIZE_MAX), NULL);
-	massert(ft_malloc(SIZE_MAX, SIZE_MAX), NULL);
+	massert(ft_malloc(SIZE_MAX, 2, "test ft_malloc_count_and_size 4"), NULL);
+	massert(ft_malloc(2, SIZE_MAX, "test ft_malloc_count_and_size 5"), NULL);
+	massert(ft_malloc(SIZE_MAX, SIZE_MAX, "test ft_malloc_count_and_size 6"), NULL);
 }
-
-////////////////////////////////////////////////////////////////////////////////

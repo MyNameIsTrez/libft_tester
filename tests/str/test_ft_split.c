@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_split)
 {
@@ -62,7 +58,7 @@ Test(ft_split)
 
 	{
 		char	**split;
-		m_safe_assert(void *, split = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' '), split, NULL, true);
+		m_safe_assert(void *, split = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ', "test ft_split 1"), split, NULL, true);
 
 		if (split != NULL)
 		{
@@ -107,7 +103,7 @@ Test(ft_split)
 
 	{
 		char	**split;
-		m_safe_assert(void *, split = ft_split("foo  bar", ' '), split, NULL, true);
+		m_safe_assert(void *, split = ft_split("foo  bar", ' ', "test ft_split 2"), split, NULL, true);
 
 		if (split != NULL)
 		{
@@ -120,7 +116,7 @@ Test(ft_split)
 
 	{
 		char	**split;
-		m_safe_assert(void *, split = ft_split("  foo  bar  ", ' '), split, NULL, true);
+		m_safe_assert(void *, split = ft_split("  foo  bar  ", ' ', "test ft_split 3"), split, NULL, true);
 
 		if (split != NULL)
 		{
@@ -133,12 +129,12 @@ Test(ft_split)
 
 	{
 		char	**split;
-		m_safe_assert(void *, split = ft_split(NULL, ' '), NULL, NULL, true);
+		m_safe_assert(void *, split = ft_split(NULL, ' ', "test ft_split 4"), NULL, NULL, true);
 	}
 
 	{
 		char	**split;
-		m_safe_assert(void *, split = ft_split("", ' '), split, NULL, true);
+		m_safe_assert(void *, split = ft_split("", ' ', "test ft_split 5"), split, NULL, true);
 
 		if (split != NULL)
 		{
@@ -149,7 +145,7 @@ Test(ft_split)
 
 	{
 		char	**split;
-		m_safe_assert(void *, split = ft_split("", '\0'), split, NULL, true);
+		m_safe_assert(void *, split = ft_split("", '\0', "test ft_split 6"), split, NULL, true);
 
 		if (split != NULL)
 		{
@@ -158,5 +154,3 @@ Test(ft_split)
 		}
 	}
 }
-
-////////////////////////////////////////////////////////////////////////////////

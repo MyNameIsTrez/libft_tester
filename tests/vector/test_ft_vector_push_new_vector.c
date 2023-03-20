@@ -10,22 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_vector_push_new_vector)
 {
 	int	**ints_2d;
 	int	v;
 
-	m_safe_assert(void *, ints_2d = ft_vector_new(sizeof(int *)), ints_2d, NULL, false);
+	m_safe_assert(void *, ints_2d = ft_vector_new(sizeof(int *), "test ft_vector_push_new_vector 1"), ints_2d, NULL, false);
 
 	if (!was_malloc_unstable)
 	{
-		m_safe_assert(t_status, ft_vector_push_new_vector(&ints_2d, sizeof(int)), OK, ERROR, false);
+		m_safe_assert(t_status, ft_vector_push_new_vector(&ints_2d, sizeof(int), "test ft_vector_push_new_vector 2"), OK, ERROR, false);
 	}
 	if (!was_malloc_unstable)
 	{

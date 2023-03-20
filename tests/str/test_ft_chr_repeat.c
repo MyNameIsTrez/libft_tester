@@ -10,22 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_chr_repeat)
 {
-	m_safe_string_assert_free(ft_chr_repeat('\0', 0), "", true);
-	m_safe_string_assert_free(ft_chr_repeat('a', 0), "", true);
+	m_safe_string_assert_free(ft_chr_repeat('\0', 0, "test ft_chr_repeat 1"), "", true);
+	m_safe_string_assert_free(ft_chr_repeat('a', 0, "test ft_chr_repeat 2"), "", true);
 
-	m_safe_string_assert_free(ft_chr_repeat('\0', 1), "", true);
-	m_safe_string_assert_free(ft_chr_repeat('a', 1), "a", true);
+	m_safe_string_assert_free(ft_chr_repeat('\0', 1, "test ft_chr_repeat 3"), "", true);
+	m_safe_string_assert_free(ft_chr_repeat('a', 1, "test ft_chr_repeat 4"), "a", true);
 
-	m_safe_string_assert_free(ft_chr_repeat('\0', 2), "", true);
-	m_safe_string_assert_free(ft_chr_repeat('a', 2), "aa", true);
+	m_safe_string_assert_free(ft_chr_repeat('\0', 2, "test ft_chr_repeat 5"), "", true);
+	m_safe_string_assert_free(ft_chr_repeat('a', 2, "test ft_chr_repeat 6"), "aa", true);
 }
-
-////////////////////////////////////////////////////////////////////////////////

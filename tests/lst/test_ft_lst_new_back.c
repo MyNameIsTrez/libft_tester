@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_lst_new_back)
 {
@@ -23,7 +19,7 @@ Test(ft_lst_new_back)
 
 	lst = NULL;
 
-	m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, "foo"), new_lst, NULL, false);
+	m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, "foo", "test ft_lst_new_back 1"), new_lst, NULL, false);
 	if (!was_malloc_unstable)
 	{
 		massert((char *)new_lst->content, "foo");
@@ -32,7 +28,7 @@ Test(ft_lst_new_back)
 
 	if (!was_malloc_unstable)
 	{
-		m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, "bar"), new_lst, NULL, false);
+		m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, "bar", "test ft_lst_new_back 2"), new_lst, NULL, false);
 	}
 	if (!was_malloc_unstable)
 	{
@@ -42,7 +38,7 @@ Test(ft_lst_new_back)
 
 	if (!was_malloc_unstable)
 	{
-		m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, "baz"), new_lst, NULL, false);
+		m_safe_assert(void *, new_lst = ft_lst_new_back(&lst, "baz", "test ft_lst_new_back 3"), new_lst, NULL, false);
 	}
 	if (!was_malloc_unstable)
 	{
@@ -52,5 +48,3 @@ Test(ft_lst_new_back)
 
 	ft_lstclear(&lst, NULL);
 }
-
-////////////////////////////////////////////////////////////////////////////////

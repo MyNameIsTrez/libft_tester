@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_vector_2d)
 {
@@ -23,11 +19,11 @@ Test(ft_vector_2d)
 	int	*row_1;
 	int	v;
 
-	m_safe_assert(void *, ints_2d = ft_vector_new(sizeof(int *)), ints_2d, NULL, false);
+	m_safe_assert(void *, ints_2d = ft_vector_new(sizeof(int *), "test ft_vector_2d 1"), ints_2d, NULL, false);
 
 	if (!was_malloc_unstable)
 	{
-		m_safe_assert(void *, row_0 = ft_vector_new(sizeof(int)), row_0, NULL, false);
+		m_safe_assert(void *, row_0 = ft_vector_new(sizeof(int), "test ft_vector_2d 2"), row_0, NULL, false);
 	}
 	if (!was_malloc_unstable)
 	{
@@ -63,7 +59,7 @@ Test(ft_vector_2d)
 
 	if (!was_malloc_unstable)
 	{
-		m_safe_assert(void *, row_1 = ft_vector_new(sizeof(int)), row_1, NULL, false);
+		m_safe_assert(void *, row_1 = ft_vector_new(sizeof(int), "test ft_vector_2d 3"), row_1, NULL, false);
 	}
 	if (!was_malloc_unstable)
 	{
@@ -94,5 +90,3 @@ Test(ft_vector_2d)
 
 	// ft_vector_free(&ints_2d);
 }
-
-////////////////////////////////////////////////////////////////////////////////

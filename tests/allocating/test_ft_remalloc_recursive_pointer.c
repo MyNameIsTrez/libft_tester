@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 typedef struct s_foo
 {
@@ -26,7 +22,7 @@ Test(ft_remalloc_recursive_pointer)
 {
 	t_foo	*foo;
 
-	m_safe_malloc_assert(foo = ft_malloc(1, sizeof(t_foo)), false);
+	m_safe_malloc_assert(foo = ft_malloc(1, sizeof(t_foo), "test ft_remalloc_recursive_pointer 1"), false);
 
 	if (!was_malloc_unstable)
 	{
@@ -34,7 +30,7 @@ Test(ft_remalloc_recursive_pointer)
 		foo->address = foo;
 
 		t_foo	*new_foo;
-		m_safe_malloc_assert(new_foo = ft_remalloc(&foo->address, 1, 2, sizeof(t_foo)), false);
+		m_safe_malloc_assert(new_foo = ft_remalloc(&foo->address, 2), false);
 
 		if (!was_malloc_unstable)
 		{
@@ -51,5 +47,3 @@ Test(ft_remalloc_recursive_pointer)
 		}
 	}
 }
-
-////////////////////////////////////////////////////////////////////////////////

@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_free_allocations)
 {
@@ -34,7 +30,7 @@ Test(ft_free_allocations_double_around)
 	int	*ints;
 	int	v;
 
-	m_safe_assert(void *, ints = ft_vector_new(sizeof(int)), ints, NULL, false);
+	m_safe_assert(void *, ints = ft_vector_new(sizeof(int), "test ft_free_allocations_double_around"), ints, NULL, false);
 
 	if (!was_malloc_unstable)
 	{
@@ -56,5 +52,3 @@ Test(ft_free_allocations_double_around)
 
 	ft_free_allocations();
 }
-
-////////////////////////////////////////////////////////////////////////////////

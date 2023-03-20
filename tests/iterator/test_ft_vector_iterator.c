@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-////////////////////////////////////////////////////////////////////////////////
-
 #include "libft_tests.h"
-
-////////////////////////////////////////////////////////////////////////////////
 
 Test(ft_vector_iterator)
 {
@@ -26,7 +22,7 @@ Test(ft_vector_iterator)
 	count = 2;
 	size = sizeof(*ints);
 
-	m_safe_assert(void *, ints = ft_vector_new(size), ints, NULL, false);
+	m_safe_assert(void *, ints = ft_vector_new(size, "test ft_vector_iterator"), ints, NULL, false);
 
 	for (int i = 0; i < (int)count; i++)
 		if (!was_malloc_unstable)
@@ -59,5 +55,3 @@ Test(ft_vector_iterator)
 		massert(it.step, (intptr_t)size);
 	}
 }
-
-////////////////////////////////////////////////////////////////////////////////
